@@ -22,13 +22,13 @@ public class UserVO {
  private String userRegion;
 
  // 회원 가입일자 
- private BigDecimal joinedAt;
+ private int joinedAt;
  
  // 회원 키 
- private BigDecimal userHeight;
+ private double userHeight;
 
  // 회원 몸무게 
- private BigDecimal userWeight;
+ private double userWeight;
 
  // 회원 프로필이미지 
  private String userProfileImg;
@@ -84,27 +84,27 @@ public class UserVO {
      this.userRegion = userRegion;
  }
 
- public Timestamp getJoinedAt() {
+ public int getJoinedAt() {
      return joinedAt;
  }
 
- public void setJoinedAt(Timestamp joinedAt) {
+ public void setJoinedAt(int joinedAt) {
      this.joinedAt = joinedAt;
  }
 
- public BigDecimal getUserHeight() {
+ public double getUserHeight() {
      return userHeight;
  }
 
- public void setUserHeight(BigDecimal userHeight) {
+ public void setUserHeight(double userHeight) {
      this.userHeight = userHeight;
  }
 
- public BigDecimal getUserWeight() {
+ public double getUserWeight() {
      return userWeight;
  }
 
- public void setUserWeight(BigDecimal userWeight) {
+ public void setUserWeight(double userWeight) {
      this.userWeight = userWeight;
  }
 
