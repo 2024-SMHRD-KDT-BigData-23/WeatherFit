@@ -12,14 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.smhrd.controller.Command;
-import com.smhrd.controller.EmailCheck;
 import com.smhrd.controller.Join;
 import com.smhrd.controller.Login;
-import com.smhrd.controller.Logout;
-import com.smhrd.controller.SelectAll;
-import com.smhrd.controller.Update;
 import com.smhrd.database.DAO;
-import com.smhrd.model.MemberVO;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -31,10 +26,10 @@ public class FrontController extends HttpServlet {
 	public void init() throws ServletException {
 		map.put("Join.do", new Join());
 		map.put("Login.do", new Login());
-		map.put("Logout.do", new Logout());
-		map.put("SelectAll.do", new SelectAll());
-		map.put("Update.do", new Update());
-		map.put("EmailCheck.do", new EmailCheck());
+//		map.put("Logout.do", new Logout());
+//		map.put("SelectAll.do", new SelectAll());
+//		map.put("Update.do", new Update());
+//		map.put("EmailCheck.do", new EmailCheck());
 	}
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response)
