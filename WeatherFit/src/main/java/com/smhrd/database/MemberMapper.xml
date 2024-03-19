@@ -5,7 +5,7 @@
 <mapper namespace="com.smhrd.database.DAO">
 	
 	<select id="login" parameterType="com.smhrd.model.UserVO" resultType="com.smhrd.model.UserVO">
-		select user_id, user_nick
+		select user_id as userId
 		from tb_user
 		where user_id = #{userId} and user_pw = #{userPw}
 	</select>
@@ -21,6 +21,11 @@
 		where userId = #{userId}
 	</update>
 
+
+	<insert id="post" parameterType="com.smhrd.model.PostVO">
+		insert into 테이블명 (postContent, userId, hashTag)
+		values(#{postContent},#{userId},#{hashTag})
+	</insert>
 
 
 
