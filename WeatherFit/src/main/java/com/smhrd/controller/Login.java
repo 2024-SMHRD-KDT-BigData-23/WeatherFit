@@ -33,6 +33,7 @@ public class Login implements Command {
 			session.setAttribute("member", resultVO);	// <<<<
 		}
 		// 로그인 완료 후 메인페이지
+    
 		return "main";
 //		return "redirect:/";
 		
