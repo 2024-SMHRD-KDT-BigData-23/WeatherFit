@@ -3,42 +3,42 @@ package com.smhrd.model;
 //회원 
 public class UserVO {
 
-	// 회원 아이디
-	private String userId;
+   // 회원 아이디
+   private String userId;
 
-	// 회원 비밀번호
-	private String userPw;
+   // 회원 비밀번호
+   private String userPw;
 
-	// 회원 이름
-	private String userName;
+   // 회원 이름
+   private String userName;
 
-	// 회원 성별
-	private int userGender;
+   // 회원 성별
+   private int userGender;
 
-	// 회원 닉네임
-	private String userNick;
+   // 회원 닉네임
+   private String userNick;
 
-	// 회원 지역
-	private String userRegion;
+   // 회원 지역
+   private String userRegion;
 
-	// 회원 가입일자
-	private int joinedAt;
+   // 회원 가입일자
+   private int joinedAt;
 
-	// 회원 키
-	private Double userHeight;
+   // 회원 키
+   private Double userHeight;
 
-	// 회원 몸무게
-	private Double userWeight;
+   // 회원 몸무게
+   private Double userWeight;
 
-	// 회원 프로필이미지
-	private String userProfileImg;
+   // 회원 프로필이미지
+   private String userProfileImg;
 
-	// 회원 프로필소개
-	private String userProfileInfo;
+   // 회원 프로필소개
+   private String userProfileInfo;
 
-	
+   
 
-	
+   
  public UserVO() {
 
  }
@@ -112,41 +112,41 @@ public class UserVO {
  }
 
 
-	public void setUserWeight(Double userWeight) {
-		this.userWeight = userWeight;
-	}
+   public void setUserWeight(Double userWeight) {
+      this.userWeight = userWeight;
+   }
 
-	public String getUserProfileImg() {
-		return userProfileImg;
-	}
+   public String getUserProfileImg() {
+      return userProfileImg;
+   }
 
-	public void setUserProfileImg(String userProfileImg) {
-		this.userProfileImg = userProfileImg;
-	}
+   public void setUserProfileImg(String userProfileImg) {
+      this.userProfileImg = userProfileImg;
+   }
 
-	public String getUserProfileInfo() {
-		return userProfileInfo;
-	}
+   public String getUserProfileInfo() {
+      return userProfileInfo;
+   }
 
-	public void setUserProfileInfo(String userProfileInfo) {
-		this.userProfileInfo = userProfileInfo;
-	}
+   public void setUserProfileInfo(String userProfileInfo) {
+      this.userProfileInfo = userProfileInfo;
+   }
 
 
-	
+   
 
-	public UserVO(String userId, String userPw, String userName, int userGender, String userNick, String userRegion,
-			Double userHeight, Double userWeight, String userProfileImg, String userProfileInfo) {
+   public UserVO(String userId, String userPw, String userName, int userGender, String userNick, String userRegion,
+         Double userHeight, Double userWeight, String userProfileImg, String userProfileInfo) {
 
-		this.userId = userId;
-		this.userPw = userPw;
-		this.userName = userName;
-		this.userGender = userGender;
-		this.userNick = userNick;
-		this.userRegion = userRegion;
-		this.userHeight = userHeight;
-		this.userProfileImg = userProfileImg;
-		this.userProfileInfo = userProfileInfo;
-	}
+      this.userId = userId;
+      this.userPw = userPw;
+      this.userName = userName;
+      this.userGender = userGender;
+      this.userNick = userNick;
+      this.userRegion = userRegion;
+      this.userHeight = userHeight;
+      this.userProfileImg = userProfileImg;
+      this.userProfileInfo = userProfileInfo;
+   }
 
 }

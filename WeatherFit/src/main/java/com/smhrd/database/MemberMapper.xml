@@ -16,9 +16,9 @@
 	</insert>
 
 	<update id="update" parameterType="com.smhrd.model.UserVO">
-		update b_member
-		set user_pw = #{userPw}, user_nick=#{userNick}, user_region = #{userRegion}, user_weight = #{userWeight}, userHeight = #{userHeight} 
-		where userId = #{userId}
+		update proj.tb_user
+		set user_pw = #{userPw}, user_nick=#{userNick}, user_region = #{userRegion}, user_weight = #{userWeight}, user_height = #{userHeight}, user_profile_img = #{userProfileImg}, user_profile_info = #{userProfileInfo} 
+		where user_id = #{userId}
 	</update>
 
 

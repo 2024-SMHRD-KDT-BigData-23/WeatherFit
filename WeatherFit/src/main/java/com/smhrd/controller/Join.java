@@ -11,14 +11,14 @@ public class Join implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		
 		String userId = request.getParameter("userId");
-		String userPw = request.getParameter("userPw");
-		String userName = request.getParameter("userName");
-		String userNick = request.getParameter("userNick");
-		int userGender = Integer.parseInt(request.getParameter("userGender"));
-		String userRegion = request.getParameter("userRegion");
-		double userWeight = Double.parseDouble(request.getParameter("userWeight"));
-		double userHeight = Double.parseDouble(request.getParameter("userHeight"));
-		
+	    String userPw = request.getParameter("userPw");
+	    String userName = request.getParameter("userName");
+	    String userNick = request.getParameter("userNick");
+	    int userGender = Integer.parseInt(request.getParameter("userGender"));
+	    String userRegion = request.getParameter("userRegion");
+	    double userWeight = Double.parseDouble(request.getParameter("userWeight"));
+	    double userHeight = Double.parseDouble(request.getParameter("userHeight"));
+
 		
 		
 		

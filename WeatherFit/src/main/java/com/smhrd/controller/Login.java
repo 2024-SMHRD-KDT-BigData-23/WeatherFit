@@ -1,7 +1,5 @@
 package com.smhrd.controller;
 
-import java.lang.ProcessBuilder.Redirect;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -14,7 +12,7 @@ public class Login implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		
 
-		String userId = request.getParameter("email_user"); // email
+		String userId = request.getParameter("email_id"); // email
 		String userPw = request.getParameter("email_pw");	// 비번
 		System.out.println(userId+" "+userPw); // 여기까지 통과했음 db에 있는 id출력됨
 
@@ -33,6 +31,7 @@ public class Login implements Command {
 			session.setAttribute("member", resultVO);	// <<<<
 		}
 		// 로그인 완료 후 메인페이지
+    
 		return "main";
 //		return "redirect:/";
 		

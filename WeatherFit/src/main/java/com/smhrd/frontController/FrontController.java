@@ -16,6 +16,8 @@ import com.smhrd.controller.Join;
 //import com.smhrd.controller.EmailCheck;
 //import com.smhrd.controller.Join;
 import com.smhrd.controller.Login;
+import com.smhrd.controller.Logout;
+import com.smhrd.controller.Update;
 //import com.smhrd.controller.Logout;
 //import com.smhrd.controller.SelectAll;
 //import com.smhrd.controller.Update;
@@ -34,9 +36,9 @@ public class FrontController extends HttpServlet {
 	public void init() throws ServletException {
 		map.put("Join.do", new Join());
 		map.put("Login.do", new Login());
-//		map.put("Logout.do", new Logout());
+		map.put("Logout.do", new Logout());
 //		map.put("SelectAll.do", new SelectAll());
-//		map.put("Update.do", new Update());
+		map.put("Update.do", new Update());
 //		map.put("EmailCheck.do", new EmailCheck());
 	}
 	
