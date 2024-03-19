@@ -3,47 +3,50 @@ package com.smhrd.model;
 //회원 
 public class UserVO {
 
- // 회원 아이디 
- private String userId;
+	// 회원 아이디
+	private String userId;
 
- // 회원 비밀번호 
- private String userPw;
+	// 회원 비밀번호
+	private String userPw;
 
- // 회원 이름 
- private String userName;
+	// 회원 이름
+	private String userName;
 
- // 회원 성별 
- private String userGender;
+	// 회원 성별
+	private String userGender;
 
- // 회원 닉네임 
- private String userNick;
+	// 회원 닉네임
+	private String userNick;
 
- // 회원 지역 
- private String userRegion;
+	// 회원 지역
+	private String userRegion;
 
- // 회원 가입일자 
- private int joinedAt;
- 
- // 회원 키 
- private double userHeight;
+	// 회원 가입일자
+	private int joinedAt;
 
- // 회원 몸무게 
- private double userWeight;
+	// 회원 키
+	private Double userHeight;
 
- // 회원 프로필이미지 
- private String userProfileImg;
+	// 회원 몸무게
+	private Double userWeight;
 
- // 회원 프로필소개 
- private String userProfileInfo;
+	// 회원 프로필이미지
+	private String userProfileImg;
 
- public String getUserId() {
-     return userId;
- }
+	// 회원 프로필소개
+	private String userProfileInfo;
+
+	
+
 	
  public UserVO() {
 
  }
-
+  
+ public String getUserId() {
+     return userId;
+ }
+  
  public void setUserId(String userId) {
      this.userId = userId;
  }
@@ -108,9 +111,6 @@ public class UserVO {
      return userWeight;
  }
 
- public void setUserWeight(double userWeight) {
-     this.userWeight = userWeight;
- }
 
 	public void setUserWeight(Double userWeight) {
 		this.userWeight = userWeight;
@@ -132,21 +132,7 @@ public class UserVO {
 		this.userProfileInfo = userProfileInfo;
 	}
 
-	// tbUser 모델 복사
-// public void CopyData(UserVO param)
-// {
-//     this.userId = param.getUserId();
-//     this.userPw = param.getUserPw();
-//     this.userName = param.getUserName();
-//     this.userGender = param.getUserGender();
-//     this.userNick = param.getUserNick();
-//     this.userRegion = param.getUserRegion();
-//     this.joinedAt = param.getJoinedAt();
-//     this.userHeight = param.getUserHeight();
-//     this.userWeight = param.getUserWeight();
-//     this.userProfileImg = param.getUserProfileImg();
-//     this.userProfileInfo = param.getUserProfileInfo();
-// }
+
 	
 
 	public UserVO(String userId, String userPw, String userName, String userGender, String userNick, String userRegion,

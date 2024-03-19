@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.smhrd.controller.Command;
+
 //import com.smhrd.controller.EmailCheck;
 //import com.smhrd.controller.Join;
 import com.smhrd.controller.Login;
@@ -20,6 +21,8 @@ import com.smhrd.controller.Login;
 //import com.smhrd.controller.Update;
 import com.smhrd.database.DAO;
 import com.smhrd.model.UserVO;
+
+
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {

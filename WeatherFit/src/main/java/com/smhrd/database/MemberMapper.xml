@@ -21,10 +21,12 @@
 		where userId = #{userId}
 	</update>
 
+
 	<insert id="post" parameterType="com.smhrd.model.PostVO">
 		insert into 테이블명 (postContent, userId, hashTag)
 		values(#{postContent},#{userId},#{hashTag})
 	</insert>
+
 
 
 

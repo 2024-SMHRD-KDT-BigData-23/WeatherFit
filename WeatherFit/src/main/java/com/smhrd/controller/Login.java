@@ -13,9 +13,11 @@ public class Login implements Command {
 	
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		
+
 		String userId = request.getParameter("email_user"); // email
 		String userPw = request.getParameter("email_pw");	// 비번
 		System.out.println(userId+" "+userPw); // 여기까지 통과했음 db에 있는 id출력됨
+
 		UserVO vo = new UserVO();
 		vo.setUserId(userId);
 		vo.setUserPw(userPw);
