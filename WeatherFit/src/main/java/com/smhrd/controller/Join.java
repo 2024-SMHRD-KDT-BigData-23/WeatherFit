@@ -43,10 +43,10 @@ public class Join implements Command {
 		if(row > 0) {
 			request.setAttribute("userId", userId);
 			// 회원가입 성공 후 로그인 화면
-			return "main";
+			return "join_success";
 		}else {
 			// 회원가입 실패 후 회원가입 화면
-			return "redirect:/";
+			return "redirect:/gomain.do";
 		}
 		
 	}
