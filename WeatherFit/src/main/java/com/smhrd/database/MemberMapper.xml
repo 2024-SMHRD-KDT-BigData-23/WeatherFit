@@ -3,5 +3,35 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.database.DAO">
+	
+	<select id="login" parameterType="com.smhrd.model.UserVO" resultType="com.smhrd.model.UserVO">
+		select user_id as userId
+		from tb_user
+		where user_id = #{userId} and user_pw = #{userPw}
+	</select>
+
+	<insert id="join" parameterType="com.smhrd.model.UserVO">
+		insert into tb_user(user_id, user_pw, user_name, user_nick, user_gender, user_region, user_weight, user_height)
+		values(#{userId},#{userPw},#{userName},#{userNick},#{userGender},#{userRegion},#{userWeight},#{userHeight})
+	</insert>
+
+	<update id="update" parameterType="com.smhrd.model.UserVO">
+		update proj.tb_user
+		set user_pw = #{userPw}, user_nick=#{userNick}, user_region = #{userRegion}, user_weight = #{userWeight}, user_height = #{userHeight}, user_profile_img = #{userProfileImg}, user_profile_info = #{userProfileInfo} 
+		where user_id = #{userId}
+	</update>
+
+
+	<insert id="post" parameterType="com.smhrd.model.PostVO">
+		insert into 테이블명 (postContent, userId, hashTag)
+		values(#{postContent},#{userId},#{hashTag})
+	</insert>
+
+
+
+
+
+
+
 
 </mapper>

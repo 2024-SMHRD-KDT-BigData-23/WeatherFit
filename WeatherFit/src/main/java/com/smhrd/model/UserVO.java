@@ -3,43 +3,50 @@ package com.smhrd.model;
 //회원 
 public class UserVO {
 
- // 회원 아이디 
- private String userId;
+   // 회원 아이디
+   private String userId;
 
- // 회원 비밀번호 
- private String userPw;
+   // 회원 비밀번호
+   private String userPw;
 
- // 회원 이름 
- private String userName;
+   // 회원 이름
+   private String userName;
 
- // 회원 성별 
- private String userGender;
+   // 회원 성별
+   private int userGender;
 
- // 회원 닉네임 
- private String userNick;
+   // 회원 닉네임
+   private String userNick;
 
- // 회원 지역 
- private String userRegion;
+   // 회원 지역
+   private String userRegion;
 
- // 회원 가입일자 
- private BigDecimal joinedAt;
- 
- // 회원 키 
- private BigDecimal userHeight;
+   // 회원 가입일자
+   private int joinedAt;
 
- // 회원 몸무게 
- private BigDecimal userWeight;
+   // 회원 키
+   private Double userHeight;
 
- // 회원 프로필이미지 
- private String userProfileImg;
+   // 회원 몸무게
+   private Double userWeight;
 
- // 회원 프로필소개 
- private String userProfileInfo;
+   // 회원 프로필이미지
+   private String userProfileImg;
 
+   // 회원 프로필소개
+   private String userProfileInfo;
+
+   
+
+   
+ public UserVO() {
+
+ }
+  
  public String getUserId() {
      return userId;
  }
-
+  
  public void setUserId(String userId) {
      this.userId = userId;
  }
@@ -60,11 +67,11 @@ public class UserVO {
      this.userName = userName;
  }
 
- public String getUserGender() {
+ public int getUserGender() {
      return userGender;
  }
 
- public void setUserGender(String userGender) {
+ public void setUserGender(int userGender) {
      this.userGender = userGender;
  }
 
@@ -84,60 +91,62 @@ public class UserVO {
      this.userRegion = userRegion;
  }
 
- public Timestamp getJoinedAt() {
+ public int getJoinedAt() {
      return joinedAt;
  }
 
- public void setJoinedAt(Timestamp joinedAt) {
+ public void setJoinedAt(int joinedAt) {
      this.joinedAt = joinedAt;
  }
 
- public BigDecimal getUserHeight() {
+ public double getUserHeight() {
      return userHeight;
  }
 
- public void setUserHeight(BigDecimal userHeight) {
+ public void setUserHeight(double userHeight) {
      this.userHeight = userHeight;
  }
 
- public BigDecimal getUserWeight() {
+ public double getUserWeight() {
      return userWeight;
  }
 
- public void setUserWeight(BigDecimal userWeight) {
-     this.userWeight = userWeight;
- }
 
- public String getUserProfileImg() {
-     return userProfileImg;
- }
+   public void setUserWeight(Double userWeight) {
+      this.userWeight = userWeight;
+   }
 
- public void setUserProfileImg(String userProfileImg) {
-     this.userProfileImg = userProfileImg;
- }
+   public String getUserProfileImg() {
+      return userProfileImg;
+   }
 
- public String getUserProfileInfo() {
-     return userProfileInfo;
- }
+   public void setUserProfileImg(String userProfileImg) {
+      this.userProfileImg = userProfileImg;
+   }
 
- public void setUserProfileInfo(String userProfileInfo) {
-     this.userProfileInfo = userProfileInfo;
- }
+   public String getUserProfileInfo() {
+      return userProfileInfo;
+   }
 
- // tbUser 모델 복사
- public void CopyData(tbUser param)
- {
-     this.userId = param.getUserId();
-     this.userPw = param.getUserPw();
-     this.userName = param.getUserName();
-     this.userGender = param.getUserGender();
-     this.userNick = param.getUserNick();
-     this.userRegion = param.getUserRegion();
-     this.joinedAt = param.getJoinedAt();
-     this.userHeight = param.getUserHeight();
-     this.userWeight = param.getUserWeight();
-     this.userProfileImg = param.getUserProfileImg();
-     this.userProfileInfo = param.getUserProfileInfo();
- }
- 
+   public void setUserProfileInfo(String userProfileInfo) {
+      this.userProfileInfo = userProfileInfo;
+   }
+
+
+   
+
+   public UserVO(String userId, String userPw, String userName, int userGender, String userNick, String userRegion,
+         Double userHeight, Double userWeight, String userProfileImg, String userProfileInfo) {
+
+      this.userId = userId;
+      this.userPw = userPw;
+      this.userName = userName;
+      this.userGender = userGender;
+      this.userNick = userNick;
+      this.userRegion = userRegion;
+      this.userHeight = userHeight;
+      this.userProfileImg = userProfileImg;
+      this.userProfileInfo = userProfileInfo;
+   }
+
 }
