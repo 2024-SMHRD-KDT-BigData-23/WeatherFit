@@ -4,6 +4,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.smhrd.model.PostVO;
+
 import com.smhrd.model.UserVO;
 
 public class DAO {
