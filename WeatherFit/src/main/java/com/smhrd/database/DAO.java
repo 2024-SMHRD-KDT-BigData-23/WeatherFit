@@ -31,10 +31,11 @@ public class DAO {
 	}
 	
 	// 개인정보 수정
-	public void update(UserVO vo) {
+	public int update(UserVO vo) {
 		SqlSession session = factory.openSession(true);
-		session.update("update", vo);
+		int row = session.update("update", vo);
 		session.close();
+		return row;
 	}
 	
 	// 게시물 작성
