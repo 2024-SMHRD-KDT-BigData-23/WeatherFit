@@ -39,6 +39,10 @@ public class UserVO {
  public String getUserId() {
      return userId;
  }
+	
+ public UserVO() {
+
+ }
 
  public void setUserId(String userId) {
      this.userId = userId;
@@ -108,36 +112,55 @@ public class UserVO {
      this.userWeight = userWeight;
  }
 
- public String getUserProfileImg() {
-     return userProfileImg;
- }
+	public void setUserWeight(Double userWeight) {
+		this.userWeight = userWeight;
+	}
 
- public void setUserProfileImg(String userProfileImg) {
-     this.userProfileImg = userProfileImg;
- }
+	public String getUserProfileImg() {
+		return userProfileImg;
+	}
 
- public String getUserProfileInfo() {
-     return userProfileInfo;
- }
+	public void setUserProfileImg(String userProfileImg) {
+		this.userProfileImg = userProfileImg;
+	}
 
- public void setUserProfileInfo(String userProfileInfo) {
-     this.userProfileInfo = userProfileInfo;
- }
+	public String getUserProfileInfo() {
+		return userProfileInfo;
+	}
 
- // tbUser 모델 복사
- public void CopyData(tbUser param)
- {
-     this.userId = param.getUserId();
-     this.userPw = param.getUserPw();
-     this.userName = param.getUserName();
-     this.userGender = param.getUserGender();
-     this.userNick = param.getUserNick();
-     this.userRegion = param.getUserRegion();
-     this.joinedAt = param.getJoinedAt();
-     this.userHeight = param.getUserHeight();
-     this.userWeight = param.getUserWeight();
-     this.userProfileImg = param.getUserProfileImg();
-     this.userProfileInfo = param.getUserProfileInfo();
- }
- 
+	public void setUserProfileInfo(String userProfileInfo) {
+		this.userProfileInfo = userProfileInfo;
+	}
+
+	// tbUser 모델 복사
+// public void CopyData(UserVO param)
+// {
+//     this.userId = param.getUserId();
+//     this.userPw = param.getUserPw();
+//     this.userName = param.getUserName();
+//     this.userGender = param.getUserGender();
+//     this.userNick = param.getUserNick();
+//     this.userRegion = param.getUserRegion();
+//     this.joinedAt = param.getJoinedAt();
+//     this.userHeight = param.getUserHeight();
+//     this.userWeight = param.getUserWeight();
+//     this.userProfileImg = param.getUserProfileImg();
+//     this.userProfileInfo = param.getUserProfileInfo();
+// }
+	
+
+	public UserVO(String userId, String userPw, String userName, String userGender, String userNick, String userRegion,
+			Double userHeight, Double userWeight, String userProfileImg, String userProfileInfo) {
+
+		this.userId = userId;
+		this.userPw = userPw;
+		this.userName = userName;
+		this.userGender = userGender;
+		this.userNick = userNick;
+		this.userRegion = userRegion;
+		this.userHeight = userHeight;
+		this.userProfileImg = userProfileImg;
+		this.userProfileInfo = userProfileInfo;
+	}
+
 }
