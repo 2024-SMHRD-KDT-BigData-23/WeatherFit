@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.smhrd.controller.Command;
-
+import com.smhrd.controller.Join;
 //import com.smhrd.controller.EmailCheck;
 //import com.smhrd.controller.Join;
 import com.smhrd.controller.Login;
@@ -32,7 +32,7 @@ public class FrontController extends HttpServlet {
 	
 	@Override
 	public void init() throws ServletException {
-//		map.put("Join.do", new Join());
+		map.put("Join.do", new Join());
 		map.put("Login.do", new Login());
 //		map.put("Logout.do", new Logout());
 //		map.put("SelectAll.do", new SelectAll());

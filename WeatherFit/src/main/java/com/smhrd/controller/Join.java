@@ -14,19 +14,13 @@ public class Join implements Command {
 		String userPw = request.getParameter("userPw");
 		String userName = request.getParameter("userName");
 		String userNick = request.getParameter("userNick");
-		String userGender = request.getParameter("userGender");
+		int userGender = Integer.parseInt(request.getParameter("userGender"));
 		String userRegion = request.getParameter("userRegion");
-		String userWeightStr = request.getParameter("userWeight");
-		String userHeightStr = request.getParameter("userHeight");
+		double userWeight = Double.parseDouble(request.getParameter("userWeight"));
+		double userHeight = Double.parseDouble(request.getParameter("userHeight"));
 		
-		Double userHeight = null;
-		Double userWeight = null;
-		try {
-			userWeight = Double.parseDouble(userWeightStr);
-			userHeight = Double.parseDouble(userHeightStr);
-		} catch (NumberFormatException e) {
-			e.printStackTrace();
-		}
+		
+		
 		
 		UserVO vo = new UserVO();
 		vo.setUserId(userId);

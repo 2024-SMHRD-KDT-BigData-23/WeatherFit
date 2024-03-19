@@ -8,6 +8,8 @@
 <meta charset="UTF-8">
 
 <title>Insert title here</title>
+
+
 </head>
 <body>
 
@@ -68,6 +70,19 @@
 		<li><input type="text" name="userHeight" placeholder="집주소를 입력하세요"></li>
 		<li><input type="submit" value="JoinUs" class="button fit"></li>
 	</form>
+
+
+	
+	</script>
+
+
+
+
+
+
+	
+	
+
 
 
 </body>

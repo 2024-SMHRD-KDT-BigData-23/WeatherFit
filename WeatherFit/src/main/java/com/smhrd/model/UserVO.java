@@ -13,7 +13,7 @@ public class UserVO {
 	private String userName;
 
 	// 회원 성별
-	private String userGender;
+	private int userGender;
 
 	// 회원 닉네임
 	private String userNick;
@@ -67,11 +67,11 @@ public class UserVO {
      this.userName = userName;
  }
 
- public String getUserGender() {
+ public int getUserGender() {
      return userGender;
  }
 
- public void setUserGender(String userGender) {
+ public void setUserGender(int userGender) {
      this.userGender = userGender;
  }
 
@@ -135,7 +135,7 @@ public class UserVO {
 
 	
 
-	public UserVO(String userId, String userPw, String userName, String userGender, String userNick, String userRegion,
+	public UserVO(String userId, String userPw, String userName, int userGender, String userNick, String userRegion,
 			Double userHeight, Double userWeight, String userProfileImg, String userProfileInfo) {
 
 		this.userId = userId;
