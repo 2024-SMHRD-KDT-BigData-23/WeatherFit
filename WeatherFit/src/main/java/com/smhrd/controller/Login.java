@@ -13,9 +13,11 @@ public class Login implements Command {
 	
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		String userId = request.getParameter("userId");
-		String userPw = request.getParameter("userPw");
-		
+
+		String userId = request.getParameter("email_user"); // email
+		String userPw = request.getParameter("email_pw");	// 비번
+		System.out.println(userId+" "+userPw); // 여기까지 통과했음 db에 있는 id출력됨
+
 		UserVO vo = new UserVO();
 		vo.setUserId(userId);
 		vo.setUserPw(userPw);
@@ -23,13 +25,17 @@ public class Login implements Command {
 		DAO dao = new DAO();
 		
 		UserVO resultVO = dao.login(vo);
-		
+
+		System.out.println("null인가?");
 		if(resultVO != null) {
+			System.out.println("null이아닌데요?");
 			HttpSession session = request.getSession();
-			session.setAttribute("member", resultVO);
+			session.setAttribute("member", resultVO);	// <<<<
 		}
 		// 로그인 완료 후 메인페이지
-		return "redirect:/gomain.do";
+    
+		return "main";
+//		return "redirect:/";
 		
 	}	
 }

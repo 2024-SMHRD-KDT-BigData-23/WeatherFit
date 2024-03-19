@@ -36,73 +36,81 @@ public class UserVO {
 	// 회원 프로필소개
 	private String userProfileInfo;
 
-	public String getUserId() {
-		return userId;
-	}
+	
 
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
+	
+ public UserVO() {
 
-	public String getUserPw() {
-		return userPw;
-	}
+ }
+  
+ public String getUserId() {
+     return userId;
+ }
+  
+ public void setUserId(String userId) {
+     this.userId = userId;
+ }
 
-	public void setUserPw(String userPw) {
-		this.userPw = userPw;
-	}
+ public String getUserPw() {
+     return userPw;
+ }
 
-	public String getUserName() {
-		return userName;
-	}
+ public void setUserPw(String userPw) {
+     this.userPw = userPw;
+ }
 
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
+ public String getUserName() {
+     return userName;
+ }
 
-	public String getUserGender() {
-		return userGender;
-	}
+ public void setUserName(String userName) {
+     this.userName = userName;
+ }
 
-	public void setUserGender(String userGender) {
-		this.userGender = userGender;
-	}
+ public String getUserGender() {
+     return userGender;
+ }
 
-	public String getUserNick() {
-		return userNick;
-	}
+ public void setUserGender(String userGender) {
+     this.userGender = userGender;
+ }
 
-	public void setUserNick(String userNick) {
-		this.userNick = userNick;
-	}
+ public String getUserNick() {
+     return userNick;
+ }
 
-	public String getUserRegion() {
-		return userRegion;
-	}
+ public void setUserNick(String userNick) {
+     this.userNick = userNick;
+ }
 
-	public void setUserRegion(String userRegion) {
-		this.userRegion = userRegion;
-	}
+ public String getUserRegion() {
+     return userRegion;
+ }
 
-	public int getJoinedAt() {
-		return joinedAt;
-	}
+ public void setUserRegion(String userRegion) {
+     this.userRegion = userRegion;
+ }
 
-	public void setJoinedAt(int joinedAt) {
-		this.joinedAt = joinedAt;
-	}
+ public int getJoinedAt() {
+     return joinedAt;
+ }
 
-	public Double getUserHeight() {
-		return userHeight;
-	}
+ public void setJoinedAt(int joinedAt) {
+     this.joinedAt = joinedAt;
+ }
 
-	public void setUserHeight(Double userHeight) {
-		this.userHeight = userHeight;
-	}
+ public double getUserHeight() {
+     return userHeight;
+ }
 
-	public Double getUserWeight() {
-		return userWeight;
-	}
+ public void setUserHeight(double userHeight) {
+     this.userHeight = userHeight;
+ }
+
+ public double getUserWeight() {
+     return userWeight;
+ }
+
 
 	public void setUserWeight(Double userWeight) {
 		this.userWeight = userWeight;
@@ -124,23 +132,11 @@ public class UserVO {
 		this.userProfileInfo = userProfileInfo;
 	}
 
-	// tbUser 모델 복사
-// public void CopyData(UserVO param)
-// {
-//     this.userId = param.getUserId();
-//     this.userPw = param.getUserPw();
-//     this.userName = param.getUserName();
-//     this.userGender = param.getUserGender();
-//     this.userNick = param.getUserNick();
-//     this.userRegion = param.getUserRegion();
-//     this.joinedAt = param.getJoinedAt();
-//     this.userHeight = param.getUserHeight();
-//     this.userWeight = param.getUserWeight();
-//     this.userProfileImg = param.getUserProfileImg();
-//     this.userProfileInfo = param.getUserProfileInfo();
-// }
 
-	public UserVO(String userId, String userPw, String userName, String userGender, String userNick, String userRegion,Double userHeight, Double userWeight, String userProfileImg, String userProfileInfo) {
+	
+
+	public UserVO(String userId, String userPw, String userName, String userGender, String userNick, String userRegion,
+			Double userHeight, Double userWeight, String userProfileImg, String userProfileInfo) {
 
 		this.userId = userId;
 		this.userPw = userPw;
@@ -152,12 +148,5 @@ public class UserVO {
 		this.userProfileImg = userProfileImg;
 		this.userProfileInfo = userProfileInfo;
 	}
-
-	public UserVO() {
-		
-	}
-
-
-
 
 }

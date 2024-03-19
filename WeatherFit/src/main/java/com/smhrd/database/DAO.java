@@ -3,6 +3,8 @@ package com.smhrd.database;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.smhrd.model.PostVO;
+
 import com.smhrd.model.UserVO;
 
 public class DAO {
@@ -13,7 +15,7 @@ public class DAO {
 	// 로그인
 	public UserVO login(UserVO vo) {
 		
-		SqlSession session = factory.openSession(true);
+		SqlSession session = factory.openSession();
 		UserVO resultVO = session.selectOne("login", vo);
 		session.close();
 		return resultVO;
@@ -35,7 +37,12 @@ public class DAO {
 		session.close();
 	}
 	
-	
-	
+	// 게시물 작성
+	public int post(PostVO pvo) {
+		SqlSession session = factory.openSession(true);
+		int row = session.insert("post", pvo);
+		session.close();
+		return row;
+	}
 	
 }
