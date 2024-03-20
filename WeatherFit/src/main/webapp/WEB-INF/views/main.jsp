@@ -14,12 +14,10 @@
 	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 	crossorigin="anonymous">
 
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-	crossorigin="anonymous"></script>
+
 
 <link rel="stylesheet" href="././assets/css/login.css">
+
 </head>
 <body>
 	<!-- 헤더부분(날씨위젯, 사이트명, 내비바) -->
@@ -39,16 +37,14 @@
 				</li>
 				<li class="nav-item"><a class="nav-link" href="#">알림</a></li>
 				<li>
-					<!-- 세션이 null이 아니라면 프로필로 바뀌게하면 됨! -->
-				
-				<c:if test="${member==null}">
-					<button type="button" class="btn btn-primary" id="btn-login">로그인</button>				
-				</c:if>	
-				
-				<c:if test="${member!=null}">
-					<button type="button" class="btn btn-primary" id="btn-logout" >로그아웃</button>				
-				</c:if>
-				
+					<!-- 세션이 null이 아니라면 프로필로 바뀌게하면 됨! --> 
+					<c:if test="${member==null}">
+						<button type="button" class="btn btn-primary" id="btn-login">로그인</button>
+					</c:if> 
+					<c:if test="${member!=null}">
+						<button type="button" class="btn btn-primary" id="btn-logout">로그아웃</button>
+					</c:if>
+
 				</li>
 			</ul>
 		</div>
@@ -213,60 +209,59 @@
 			</div>
 		</div>
 
-			<!-- 모달창 -->
-			<div id="modal">
-				<div id="modal-body">
+		<!-- 모달창 -->
+		<div id="modal">
+			<div id="modal-body">
 
-					<div id="join-wrap" align="center">
-						<main class="form-signin w-100 m-auto">
+				<div id="join-wrap" align="center">
+					<main class="form-signin w-100 m-auto">
 
 
-							<form action="Login.do" method="post">
-								<h1 class="fw-bold mb-0 fs-2">로그인</h1>
-								<br>
+						<form action="Login.do" method="post">
+							<h1 class="fw-bold mb-0 fs-2">로그인</h1>
+							<br>
 
-								<div class="form-floating">
-									<input type="text" class="form-control" name="email_id"
-										placeholder="id"> <label for="floatingInput">아이디</label>
-								</div>
-								<div class="form-floating">
-									<input type="text" class="form-control" name="email_pw"
-										placeholder="Password"> <label for="floatingPassword">비밀번호</label>
-								</div>
-								<!-- <div class="form-check text-start my-3">
+							<div class="form-floating">
+								<input type="text" class="form-control" name="email_id"
+									placeholder="id"> <label for="floatingInput">아이디</label>
+							</div>
+							<div class="form-floating">
+								<input type="text" class="form-control" name="email_pw"
+									placeholder="Password"> <label for="floatingPassword">비밀번호</label>
+							</div>
+							<!-- <div class="form-check text-start my-3">
             <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
             <label class="form-check-label" for="flexCheckDefault">
               Remember me
             </label>
           </div> -->
 
-							<c:if test="${member == null }">
-							
+							<c:if test="${member==null}">
 								<button class="btn btn-primary w-100 py-2" type="submit">로그인</button>
 							</c:if>
-							
+
+						</form>
+
+						<hr class="my-4">
+						<h2 class="fs-5 fw-bold mb-3">SNS 계정으로 로그인</h2>
+						<button
+							class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3"
+							type="submit">Google 계정으로 로그인</button>
 
 
+					</main>
 
-
-							</form>
-
-							<hr class="my-4">
-							<h2 class="fs-5 fw-bold mb-3">SNS 계정으로 로그인</h2>
-							<button
-								class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3"
-								type="submit">Google 계정으로 로그인</button>
-
-
-						</main>
-
-					</div>
 				</div>
 			</div>
-			<!-- 여기까지 모달 -->
-			
+		</div>
+		<!-- 여기까지 모달 -->
+
 	</main>
 
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+		crossorigin="anonymous"></script>
 	<script src="././assets/js/login.js"></script>
 </body>
 </html>
