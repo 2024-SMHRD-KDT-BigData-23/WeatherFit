@@ -14,7 +14,6 @@ public class Login implements Command {
 
 		String userId = request.getParameter("email_id"); // email
 		String userPw = request.getParameter("email_pw");	// 비번
-		System.out.println(userId+" "+userPw); // 여기까지 통과했음 db에 있는 id출력됨
 
 		UserVO vo = new UserVO();
 		vo.setUserId(userId);
@@ -32,7 +31,7 @@ public class Login implements Command {
 		}
 		// 로그인 완료 후 메인페이지
     
-		return "main";
+		return "redirect:/gomain.do";
 //		return "redirect:/";
 		
 	}	

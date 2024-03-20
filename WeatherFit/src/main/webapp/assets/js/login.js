@@ -1,10 +1,19 @@
 // 모달창
+      let logout = document.getElementById("btn-logout");
+      logout.addEventListener("click", function () {
+      location.href=Logout.do
+
+
+      });
+     
       // 로그인버튼에 id="btn-login" 추가
       let login = document.getElementById("btn-login");
       login.addEventListener("click", function () {
         showModal(this);
       });
-
+	  
+	  
+	  
       let body = document.querySelector("body");
       let modal = document.getElementById("modal");
       let modalbody = document.getElementById("modal-body");

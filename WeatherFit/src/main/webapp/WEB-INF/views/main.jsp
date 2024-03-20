@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -32,16 +33,22 @@
 			<!-- 내비바 -->
 			<ul class="nav nav-underline">
 				<li class="nav-item"><a class="nav-link" href="#">홈</a></li>
-				<li class="nav-item"><a class="nav-link" href="search">검색</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="#">팔로우</a>
-				</li>
+				<li class="nav-item"><a class="nav-link" href="search">검색</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">팔로우</a></li>
 				<li class="nav-item"><a class="nav-link" href="message">메시지</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="#">알림</a></li>
 				<li>
 					<!-- 세션이 null이 아니라면 프로필로 바뀌게하면 됨! -->
-					<button type="button" class="btn btn-primary" id="btn-login">로그인</button>
+				
+				<c:if test="${member==null}">
+					<button type="button" class="btn btn-primary" id="btn-login">로그인</button>				
+				</c:if>	
+				
+				<c:if test="${member!=null}">
+					<button type="button" class="btn btn-primary" id="btn-logout" >로그아웃</button>				
+				</c:if>
+				
 				</li>
 			</ul>
 		</div>
@@ -49,7 +56,7 @@
 
 	<!-- 메인부분(토글버튼, 게시글 카드) -->
 	<main>
-		<div class="album bg-body-tertiary">
+		<div class="album bg-tertiary">
 			<div class="container">
 				<!-- 토글 버튼 -->
 				<p class="d-flex justify-content-center">
@@ -204,6 +211,7 @@
 
 				</div>
 			</div>
+		</div>
 
 			<!-- 모달창 -->
 			<div id="modal">
@@ -211,18 +219,19 @@
 
 					<div id="join-wrap" align="center">
 						<main class="form-signin w-100 m-auto">
-							<form action="#" method="post">
+
+
+							<form action="Login.do" method="post">
 								<h1 class="fw-bold mb-0 fs-2">로그인</h1>
 								<br>
 
 								<div class="form-floating">
-									<input type="email" class="form-control" id="floatingInput"
+									<input type="text" class="form-control" name="email_id"
 										placeholder="id"> <label for="floatingInput">아이디</label>
 								</div>
 								<div class="form-floating">
-									<input type="password" class="form-control"
-										id="floatingPassword" placeholder="Password"> <label
-										for="floatingPassword">비밀번호</label>
+									<input type="text" class="form-control" name="email_pw"
+										placeholder="Password"> <label for="floatingPassword">비밀번호</label>
 								</div>
 								<!-- <div class="form-check text-start my-3">
             <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
@@ -230,7 +239,16 @@
               Remember me
             </label>
           </div> -->
+
+							<c:if test="${member == null }">
+							
 								<button class="btn btn-primary w-100 py-2" type="submit">로그인</button>
+							</c:if>
+							
+
+
+
+
 							</form>
 
 							<hr class="my-4">
@@ -246,6 +264,7 @@
 				</div>
 			</div>
 			<!-- 여기까지 모달 -->
+			
 	</main>
 
 	<script src="././assets/js/login.js"></script>
