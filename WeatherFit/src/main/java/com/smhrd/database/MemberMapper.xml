@@ -16,18 +16,20 @@
 	</insert>
 
 	<update id="update" parameterType="com.smhrd.model.UserVO">
-		update proj.tb_user
+		update pr1.tb_user
 		set user_pw = #{userPw}, user_nick=#{userNick}, user_region = #{userRegion}, user_weight = #{userWeight}, user_height = #{userHeight}, user_profile_img = #{userProfileImg}, user_profile_info = #{userProfileInfo} 
 		where user_id = #{userId}
 	</update>
 
 
 	<insert id="post" parameterType="com.smhrd.model.PostVO">
-		insert into 테이블명 (postContent, userId, hashTag)
+		insert into tb_post (post_content, user_id, hash_tag)
 		values(#{postContent},#{userId},#{hashTag})
 	</insert>
 
-
+	<select id="getpost">
+		select * from tb_post order by post_idx desc
+	</select>
 
 
 
