@@ -1,5 +1,7 @@
 package com.smhrd.database;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -45,5 +47,25 @@ public class DAO {
 		session.close();
 		return row;
 	}
+	
+	public Object getpost() {
+		SqlSession session = factory.openSession();
+//		PostVO resultPVO = (PostVO)session.selectList("getpost");
+		Object obj =  session.selectList("getpost");
+		session.close();
+		return obj;
+	}
+	
+	public List<PostVO> Postselect() {
+		
+		SqlSession session = factory.openSession();
+		
+		List<PostVO> resultList = session.selectList("Postselect");
+		session.close();
+		return resultList;
+		
+	}
+	
+	
 	
 }

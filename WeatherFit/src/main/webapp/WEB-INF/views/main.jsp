@@ -1,80 +1,267 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
 
-<title>Insert title here</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+	crossorigin="anonymous">
+
+
+
+<link rel="stylesheet" href="././assets/css/login.css">
+
 </head>
 <body>
+	<!-- 헤더부분(날씨위젯, 사이트명, 내비바) -->
+	<header class="p-3 bg-light">
+		<div
+			class="container d-flex align-items-center justify-content-between">
+			<!-- 날씨위젯 -->
+			<div class="logo">WeatherWidget</div>
+			<!-- 사이트명 -->
+			<div class="title">WeatherFit</div>
+			<!-- 내비바 -->
+			<ul class="nav nav-underline">
+				<li class="nav-item"><a class="nav-link" href="#">홈</a></li>
+				<li class="nav-item"><a class="nav-link" href="search">검색</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">팔로우</a></li>
+				<li class="nav-item"><a class="nav-link" href="message">메시지</a>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="#">알림</a></li>
+				<li>
+					<!-- 세션이 null이 아니라면 프로필로 바뀌게하면 됨! --> 
+					<c:if test="${member==null}">
+						<button type="button" class="btn btn-primary" id="btn-login">로그인</button>
+					</c:if> 
+					<c:if test="${member!=null}">
+						<button type="button" class="btn btn-primary" id="btn-logout">로그아웃</button>
+					</c:if>
 
-	
+				</li>
+			</ul>
+		</div>
+	</header>
 
-	<form action="Login.do" method="post">
+	<!-- 메인부분(토글버튼, 게시글 카드) -->
+	<main>
+		<div class="album bg-tertiary">
+			<div class="container">
+				<!-- 토글 버튼 -->
+				<p class="d-flex justify-content-center">
+					<button type="button" class="btn btn-primary"
+						data-bs-toggle="button">최신</button>
+				</p>
+				<!-- 게시글 카드 -->
+				<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+					<div class="col">
+						<div class="card shadow-sm">
+							<svg class="bd-placeholder-img card-img-top" width="100%"
+								height="225" xmlns="http://www.w3.org/2000/svg" role="img"
+								aria-label="Placeholder: Thumbnail"
+								preserveAspectRatio="xMidYMid slice" focusable="false">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#55595c" />
+								<text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+              </svg>
+							<div class="card-body">
+								<p class="card-text">This is a wider card with supporting</p>
+								<div class="d-flex justify-content-between align-items-center">
+									<div class="btn-group">
+										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+									</div>
+									<small class="text-body-secondary">9 mins</small>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card shadow-sm">
+							<svg class="bd-placeholder-img card-img-top" width="100%"
+								height="225" xmlns="http://www.w3.org/2000/svg" role="img"
+								aria-label="Placeholder: Thumbnail"
+								preserveAspectRatio="xMidYMid slice" focusable="false">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#55595c" />
+								<text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+              </svg>
+							<div class="card-body">
+								<p class="card-text">This is a wider card with supporting
+									text below as a natural lead-in to additional content. This
+									content is a little bit longer.</p>
+								<div class="d-flex justify-content-between align-items-center">
+									<div class="btn-group">
+										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+									</div>
+									<small class="text-body-secondary">9 mins</small>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card shadow-sm">
+							<svg class="bd-placeholder-img card-img-top" width="100%"
+								height="225" xmlns="http://www.w3.org/2000/svg" role="img"
+								aria-label="Placeholder: Thumbnail"
+								preserveAspectRatio="xMidYMid slice" focusable="false">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#55595c" />
+								<text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+              </svg>
+							<div class="card-body">
+								<p class="card-text">This is a wider card with supporting
+									text below as a natural lead-in to additional content. This
+									content is a little bit longer.</p>
+								<div class="d-flex justify-content-between align-items-center">
+									<div class="btn-group">
+										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+									</div>
+									<small class="text-body-secondary">9 mins</small>
+								</div>
+							</div>
+						</div>
+					</div>
 
-		<li><input type="text" name="email_id" placeholder="아이디 입력"></li>
-		<li><input type="text" name="email_pw" placeholder="비밀번호 입력"></li>
-		<li><input type="submit" value="LogIn" class="button fit"></li>
-	</form>
+					<div class="col">
+						<div class="card shadow-sm">
+							<svg class="bd-placeholder-img card-img-top" width="100%"
+								height="225" xmlns="http://www.w3.org/2000/svg" role="img"
+								aria-label="Placeholder: Thumbnail"
+								preserveAspectRatio="xMidYMid slice" focusable="false">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#55595c" />
+								<text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+              </svg>
+							<div class="card-body">
+								<p class="card-text">This is a wider card with supporting
+									text below as a natural lead-in to additional content. This
+									content is a little bit longer.</p>
+								<div class="d-flex justify-content-between align-items-center">
+									<div class="btn-group">
+										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+									</div>
+									<small class="text-body-secondary">9 mins</small>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card shadow-sm">
+							<svg class="bd-placeholder-img card-img-top" width="100%"
+								height="225" xmlns="http://www.w3.org/2000/svg" role="img"
+								aria-label="Placeholder: Thumbnail"
+								preserveAspectRatio="xMidYMid slice" focusable="false">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#55595c" />
+								<text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+              </svg>
+							<div class="card-body">
+								<p class="card-text">This is a wider card with supporting
+									text below as a natural lead-in to additional content. This
+									content is a little bit longer.</p>
+								<div class="d-flex justify-content-between align-items-center">
+									<div class="btn-group">
+										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+									</div>
+									<small class="text-body-secondary">9 mins</small>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card shadow-sm">
+							<svg class="bd-placeholder-img card-img-top" width="100%"
+								height="225" xmlns="http://www.w3.org/2000/svg" role="img"
+								aria-label="Placeholder: Thumbnail"
+								preserveAspectRatio="xMidYMid slice" focusable="false">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#55595c" />
+								<text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+              </svg>
+							<div class="card-body">
+								<p class="card-text">This is a wider card with supporting
+									text below as a natural lead-in to additional content. This
+									content is a little bit longer.</p>
+								<div class="d-flex justify-content-between align-items-center">
+									<div class="btn-group">
+										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+									</div>
+									<small class="text-body-secondary">9 mins</small>
+								</div>
+							</div>
+						</div>
+					</div>
 
-	<form action="Join.do" method="post">
+				</div>
+			</div>
+		</div>
 
-		<li><input type="text" name="userId" placeholder="아이디"></li>
-		<li><input type="password" name="userPw" placeholder="PW"></li>
-		<li><input type="text" name="userName" placeholder="아룸"></li>
-		<li><input type="text" name="userNick" placeholder="닉네임"></li>
+		<!-- 모달창 -->
+		<div id="modal">
+			<div id="modal-body">
 
-		<li><label>성별</label> <select name="userGender">
-				<option>1</option>
-				<option>0</option>
-		</select></li>
-
-		<li><input type="text" name="userRegion" placeholder="지역"></li>
-		<li><input type="text" name="userWeight" placeholder="몸무게"></li>
-		<li><input type="text" name="userHeight" placeholder="키"></li>
-		<li><input type="submit" value="JoinUs" class="button fit"></li>
-	</form>
+				<div id="join-wrap" align="center">
+					<main class="form-signin w-100 m-auto">
 
 
+						<form action="Login.do" method="post">
+							<h1 class="fw-bold mb-0 fs-2">로그인</h1>
+							<br>
+
+							<div class="form-floating">
+								<input type="text" class="form-control" name="email_id"
+									placeholder="id"> <label for="floatingInput">아이디</label>
+							</div>
+							<div class="form-floating">
+								<input type="text" class="form-control" name="email_pw"
+									placeholder="Password"> <label for="floatingPassword">비밀번호</label>
+							</div>
+							<!-- <div class="form-check text-start my-3">
+            <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              Remember me
+            </label>
+          </div> -->
+
+							<c:if test="${member==null}">
+								<button class="btn btn-primary w-100 py-2" type="submit">로그인</button>
+							</c:if>
+
+						</form>
+
+						<hr class="my-4">
+						<h2 class="fs-5 fw-bold mb-3">SNS 계정으로 로그인</h2>
+						<button
+							class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3"
+							type="submit">Google 계정으로 로그인</button>
 
 
+					</main>
 
-	<form action="Post.do" method="post">
-		postContent <input type="text" name="postContent"> hashTag <input
-			type="text" name="hashTag"> <input type="submit" value="제출">
-	</form>
+				</div>
+			</div>
+		</div>
+		<!-- 여기까지 모달 -->
 
-	<h1>로그인 완료 회원 : ${member.userId}님 환영</h1>
+	</main>
 
-
-	
-	<c:if test="${member != null}">
-		
-		<form action="Update.do" method="post">
-			<li><input type="password" name="userPw" placeholder="PW" ></li>
-			<li><input type="text" name="userNick" placeholder="닉네임"></li>
-			<li><input type="text" name="userRegion" placeholder="지역"></li>
-			<li><input type="text" name="userWeight" placeholder="몸무게"></li>
-			<li><input type="text" name="userHeight" placeholder="키"></li>
-			<li><input type="text" name="userProfileImg" placeholder="프로필사진 수정"></li>
-			<li><input type="text" name="userProfileInfo" placeholder="프로필 소개 수정"></li>
-			<li><input type="submit" value="update" class="button fit"></li>
-		</form>
-		<a href="Logout.do">로그아웃</a>
-		
-		
-		
-		
-	</c:if>
-
-
-
-
-
-
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+		crossorigin="anonymous"></script>
+	<script src="././assets/js/login.js"></script>
 </body>
 </html>
