@@ -9,6 +9,8 @@
 <meta charset="UTF-8">
 
 <title>Insert title here</title>
+
+
 </head>
 <body>
 
@@ -39,15 +41,6 @@
 		<li><input type="submit" value="JoinUs" class="button fit"></li>
 	</form>
 
-
-
-
-
-	<form action="Post.do" method="post">
-		postContent <input type="text" name="postContent"> hashTag <input
-			type="text" name="hashTag"> <input type="submit" value="제출">
-	</form>
-
 	<h1>로그인 완료 회원 : ${member.userId}님 환영</h1>
 
 
@@ -68,7 +61,15 @@
 		
 		
 		
+		<form action="Post.do" method="post">
+			<label>게시글 내용</label><input type="text" name="postContent">
+			<label>해시 태그</label> <input type="text" name="hashTag">
+			<input type="submit" value="글작성">
+		</form>
 		
+		<form action="TestGo.do" method="post">
+			<button type="submit">게시판으로가자</button>
+		</form>
 	</c:if>
 
 
