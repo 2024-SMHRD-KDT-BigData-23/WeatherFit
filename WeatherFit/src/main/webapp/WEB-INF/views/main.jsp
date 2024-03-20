@@ -13,7 +13,7 @@
 
 </head>
 <body>
-
+	
 	
 
 	<form action="Login.do" method="post">
@@ -70,10 +70,14 @@
 		<form action="TestGo.do" method="post">
 			<button type="submit">게시판으로가자</button>
 		</form>
+		
+		<a href="Postselect.do">게시판 조회</a>
+		
+		
 	</c:if>
 
 
-
+		
 
 
 

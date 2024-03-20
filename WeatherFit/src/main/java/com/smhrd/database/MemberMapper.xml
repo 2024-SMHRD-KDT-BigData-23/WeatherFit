@@ -31,6 +31,10 @@
 		select * from tb_post order by post_idx desc
 	</select>
 
+	<select id="Postselect" resultType="com.smhrd.model.PostVO">
+		select user_id as userId, post_content as postContent, hash_tag as hashTag
+		from tb_post
+	</select>
 
 
 
