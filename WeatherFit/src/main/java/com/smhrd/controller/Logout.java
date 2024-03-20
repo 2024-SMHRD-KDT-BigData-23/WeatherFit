@@ -10,6 +10,8 @@ public class Logout implements Command{
 
 		HttpSession session = request.getSession();
 		session.invalidate();
+		
+		System.out.println("들어옴");
 		return "redirect:/gomain.do";
 		
 	}
