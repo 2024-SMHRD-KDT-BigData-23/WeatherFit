@@ -56,11 +56,11 @@ public class DAO {
 		return obj;
 	}
 	
-	public List<PostVO> Postselect() {
+	public List<PostVO> postselect() {
 		
 		SqlSession session = factory.openSession();
 		
-		List<PostVO> resultList = session.selectList("Postselect");
+		List<PostVO> resultList = session.selectList("postselect");
 		session.close();
 		return resultList;
 		

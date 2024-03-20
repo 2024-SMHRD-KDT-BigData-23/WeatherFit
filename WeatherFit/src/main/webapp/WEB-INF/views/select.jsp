@@ -19,14 +19,14 @@
 			<h2>회원관리페이지</h2>
 		</caption>
 		<tr>
-			<td>id</td>
+			<td>닉네임</td>
 			<td>내용</td>
 			<td>해시태그</td>
 		</tr>
 
 		<c:forEach items="${list}" var="pvo">
 							<tr>
-								<td>${pvo.userId}</td>
+								<td>${member.userNick}</td>
 								<td>${pvo.postContent}</td>
 								<td>${pvo.hashTag}</td>							
 							</tr>

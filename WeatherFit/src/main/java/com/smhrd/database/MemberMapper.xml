@@ -5,34 +5,35 @@
 <mapper namespace="com.smhrd.database.DAO">
 	
 	<select id="login" parameterType="com.smhrd.model.UserVO" resultType="com.smhrd.model.UserVO">
-		select user_id as userId
+		select userId, userNick
 		from tb_user
-		where user_id = #{userId} and user_pw = #{userPw}
+		where userId = #{userId} and userPw = #{userPw}
 	</select>
 
 	<insert id="join" parameterType="com.smhrd.model.UserVO">
-		insert into tb_user(user_id, user_pw, user_name, user_nick, user_gender, user_region, user_weight, user_height)
+		insert into tb_user(userId, userPw, userName, userNick, userGender, userRegion, userWeight, userHeight)
 		values(#{userId},#{userPw},#{userName},#{userNick},#{userGender},#{userRegion},#{userWeight},#{userHeight})
 	</insert>
 
 	<update id="update" parameterType="com.smhrd.model.UserVO">
-		update pr1.tb_user
-		set user_pw = #{userPw}, user_nick=#{userNick}, user_region = #{userRegion}, user_weight = #{userWeight}, user_height = #{userHeight}, user_profile_img = #{userProfileImg}, user_profile_info = #{userProfileInfo} 
-		where user_id = #{userId}
+		update tb_user
+		set userPw = #{userPw}, userNick=#{userNick}, userRegion = #{userRegion}, userWeight = #{userWeight}, userHeight = #{userHeight},
+		userProfileImg = #{userProfileImg}, userProfileInfo = #{userProfileInfo} 
+		where userId = #{userId}
 	</update>
 
 
 	<insert id="post" parameterType="com.smhrd.model.PostVO">
-		insert into tb_post (post_content, user_id, hash_tag)
+		insert into tb_post (postContent, userId, hashTag)
 		values(#{postContent},#{userId},#{hashTag})
 	</insert>
 
 	<select id="getpost">
-		select * from tb_post order by post_idx desc
+		select * from tb_post order by postIdx desc
 	</select>
 
-	<select id="Postselect" resultType="com.smhrd.model.PostVO">
-		select user_id as userId, post_content as postContent, hash_tag as hashTag
+	<select id="postselect" resultType="com.smhrd.model.PostVO">
+		select userId, postContent, hashTag
 		from tb_post
 	</select>
 
