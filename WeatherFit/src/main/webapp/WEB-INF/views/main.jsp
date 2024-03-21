@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.controller.GetPost"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -20,6 +21,8 @@
 
 </head>
 <body>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	
 	<!-- 헤더부분(날씨위젯, 사이트명, 내비바) -->
 	<header class="p-3 bg-light">
 		<div
@@ -60,6 +63,7 @@
 						data-bs-toggle="button">최신</button>
 				</p>
 				<!-- 게시글 카드 -->
+				
 				<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 					<div class="col">
 						<div class="card shadow-sm">
@@ -72,7 +76,7 @@
 								<text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
               </svg>
 							<div class="card-body">
-								<p class="card-text">This is a wider card with supporting</p>
+								<p class="card-text">${allpost}</p>
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="btn-group">
 										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
@@ -255,13 +259,41 @@
 			</div>
 		</div>
 		<!-- 여기까지 모달 -->
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" >
+  Launch static backdrop modal
+</button>
 
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
+<a href = "select">게시판</a>
 	</main>
+
+
+
+
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 		crossorigin="anonymous"></script>
 	<script src="././assets/js/login.js"></script>
+	<script src="assets/js/post.js"></script>
 </body>
 </html>

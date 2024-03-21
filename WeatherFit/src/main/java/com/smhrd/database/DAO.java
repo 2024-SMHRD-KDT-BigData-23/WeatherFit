@@ -1,6 +1,7 @@
 package com.smhrd.database;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -48,12 +49,12 @@ public class DAO {
 		return row;
 	}
 	
-	public Object getpost() {
+	public List<Map<String, Object>> getpost() {
 		SqlSession session = factory.openSession();
 //		PostVO resultPVO = (PostVO)session.selectList("getpost");
-		Object obj =  session.selectList("getpost");
+		List<Map<String, Object>> result =  session.selectList("getpost");
 		session.close();
-		return obj;
+		return result;
 	}
 	
 	public List<PostVO> Postselect() {
