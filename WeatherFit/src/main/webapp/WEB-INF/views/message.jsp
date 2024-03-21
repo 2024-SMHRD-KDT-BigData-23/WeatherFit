@@ -107,6 +107,6 @@
               <button onclick="sendMessage()">전송</button>
         </div>
     </main>
-    <script src="././assets/js/message.js"></script>
+    <!-- <script src="././assets/js/message.js"></script> -->
 </body>
 </html>
