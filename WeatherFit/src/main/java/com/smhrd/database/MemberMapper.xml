@@ -37,7 +37,7 @@
    </select>
 
    <select id="Postselect" resultType="com.smhrd.model.PostVO">
-      select userId, postContent, hashTag
+      select *
       from tb_post
    </select>
 
