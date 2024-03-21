@@ -72,7 +72,7 @@
 						data-bs-toggle="button">최신</button>
 				</p>
 				<!-- 게시글 카드 -->
-				<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+				<div id="post-view" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 					<div class="col">
 						<div class="card shadow-sm">
 							<svg class="bd-placeholder-img card-img-top" width="100%"
@@ -273,5 +273,6 @@
 	<script src="././assets/js/logout.js"></script>
 	<script src="././assets/js/notification.js"></script>
 	<script src="././assets/js/weatherwidget.js"></script>
+	<script src="././assets/js/postview.js"></script>
 </body>
 </html>

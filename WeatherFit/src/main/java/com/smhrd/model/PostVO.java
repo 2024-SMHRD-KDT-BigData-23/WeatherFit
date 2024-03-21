@@ -1,5 +1,7 @@
 package com.smhrd.model;
 
+import java.sql.Timestamp;
+
 public class PostVO {
 	
 	// 게시글 
@@ -12,7 +14,7 @@ public class PostVO {
 	    private String postContent;
 
 	    // 작성 일자 
-	    private int createdAt;
+	    private Timestamp createdAt;
 
 	    // 작성자 아이디 
 	    private String userId;
@@ -43,11 +45,11 @@ public class PostVO {
 	        this.postContent = postContent;
 	    }
 
-	    public int getCreatedAt() {
+	    public Timestamp getCreatedAt() {
 	        return createdAt;
 	    }
 
-	    public void setCreatedAt(int createdAt) {
+	    public void setCreatedAt(Timestamp createdAt) {
 	        this.createdAt = createdAt;
 	    }
 
