@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.smhrd.controller.Command;
+import com.smhrd.controller.GetPost;
 import com.smhrd.controller.Join;
 //import com.smhrd.controller.EmailCheck;
 //import com.smhrd.controller.Join;
@@ -44,6 +45,7 @@ public class FrontController extends HttpServlet {
 		map.put("TestGo.do", new TestGo());
 		map.put("Postselect.do", new Postselect());
 		map.put("Update.do", new Update());
+		map.put("GetPost.do", new GetPost());
 //		map.put("EmailCheck.do", new EmailCheck());
 	}
 	
