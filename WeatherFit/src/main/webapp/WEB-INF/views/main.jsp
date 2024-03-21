@@ -41,6 +41,7 @@
 					<c:if test="${member==null}">
 						<button type="button" class="btn btn-primary" id="btn-login">로그인</button>
 					</c:if> 
+					
 					<c:if test="${member!=null}">
 						<button type="button" class="btn btn-primary" id="btn-logout">로그아웃</button>
 					</c:if>

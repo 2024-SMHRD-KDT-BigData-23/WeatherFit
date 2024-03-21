@@ -20,13 +20,21 @@ document.addEventListener("mouseup", function(e) {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
+	
+	
 	let login = document.getElementById("btn-login");
+	
 	login.addEventListener("click",()=>{
+		
 	showModal(login);
+	
 	});
 	
 	
+	
 });
+
+
 
 
 
