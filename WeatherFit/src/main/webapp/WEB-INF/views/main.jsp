@@ -17,7 +17,7 @@
 
 
 <link rel="stylesheet" href="././assets/css/login.css">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
 	<!-- 헤더부분(날씨위젯, 사이트명, 내비바) -->
@@ -31,16 +31,17 @@
 			<!-- 내비바 -->
 			<ul class="nav nav-underline">
 				<li class="nav-item"><a class="nav-link" href="#">홈</a></li>
-				<li class="nav-item"><a class="nav-link" href="search">검색</a></li>
+				<li class="nav-item"><a class="nav-link" href="gosearch.do">검색</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">팔로우</a></li>
 				<li class="nav-item"><a class="nav-link" href="message">메시지</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="#">알림</a></li>
 				<li>
 					<!-- 세션이 null이 아니라면 프로필로 바뀌게하면 됨! --> 
+					
 					<c:if test="${member==null}">
 						<button type="button" class="btn btn-primary" id="btn-login">로그인</button>
-					</c:if> 
+					</c:if>
 					<c:if test="${member!=null}">
 						<button type="button" class="btn btn-primary" id="btn-logout">로그아웃</button>
 					</c:if>
@@ -49,6 +50,8 @@
 			</ul>
 		</div>
 	</header>
+	
+	<div id="container-notification"></div>
 
 	<!-- 메인부분(토글버튼, 게시글 카드) -->
 	<main>
@@ -207,7 +210,7 @@
 
 				</div>
 			</div>
-		</div>
+		</main>
 
 		<!-- 모달창 -->
 		<div id="modal">
@@ -263,5 +266,7 @@
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 		crossorigin="anonymous"></script>
 	<script src="././assets/js/login.js"></script>
+	<script src="././assets/js/logout.js"></script>
+	<script src="././assets/js/notification.js"></script>
 </body>
 </html>
