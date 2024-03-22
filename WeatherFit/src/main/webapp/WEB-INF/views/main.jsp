@@ -42,7 +42,7 @@
 			<div class="title">WeatherFit</div>
 			<!-- 내비바 -->
 			<ul class="nav nav-underline">
-				<li class="nav-item"><a class="nav-link" href="#">홈</a></li>
+				<li class="nav-item"><a class="nav-link" href="gomain.do">홈</a></li>
 				<li class="nav-item"><a class="nav-link" href="gosearch.do">검색</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">팔로우</a></li>
 				<li class="nav-item"><a class="nav-link" href="gomessage.do">메시지</a>
