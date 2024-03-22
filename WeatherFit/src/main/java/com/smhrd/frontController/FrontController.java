@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import com.smhrd.controller.Command;
 import com.smhrd.controller.GetPost;
+import com.smhrd.controller.Home;
 import com.smhrd.controller.Join;
 //import com.smhrd.controller.EmailCheck;
 //import com.smhrd.controller.Join;
@@ -20,7 +21,7 @@ import com.smhrd.controller.Login;
 import com.smhrd.controller.Logout;
 import com.smhrd.controller.Post;
 import com.smhrd.controller.Postselect;
-import com.smhrd.controller.TestGo;
+import com.smhrd.controller.Message;
 import com.smhrd.controller.Update;
 //import com.smhrd.controller.Logout;
 //import com.smhrd.controller.SelectAll;
@@ -42,10 +43,17 @@ public class FrontController extends HttpServlet {
 		map.put("Login.do", new Login());
 		map.put("Logout.do", new Logout());
 		map.put("Post.do", new Post());
-		map.put("TestGo.do", new TestGo());
 		map.put("Postselect.do", new Postselect());
 		map.put("Update.do", new Update());
 		map.put("GetPost.do", new GetPost());
+		
+		
+		// 단순 이동 기능
+		map.put("Message.do", new Message());
+		map.put("Home.do", new Home());
+		
+		
+		
 //		map.put("EmailCheck.do", new EmailCheck());
 	}
 	

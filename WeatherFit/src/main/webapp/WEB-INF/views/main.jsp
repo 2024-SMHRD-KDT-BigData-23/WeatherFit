@@ -25,12 +25,12 @@
 <!-- fontawesome -->
 <script src="https://kit.fontawesome.com/cf3cd4698d.js"
 	crossorigin="anonymous"></script>
-	
-<link rel="stylesheet" href="././assets/css/login.css">
+
+<link rel="stylesheet" href="assets/css/login.css">
 </head>
 <body>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-	
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
 	<!-- 헤더부분(날씨위젯, 사이트명, 내비바) -->
 	<header class="p-3 bg-light">
 		<div
@@ -43,26 +43,40 @@
 			</a>
 			<!-- 사이트명 -->
 			<div class="title">WeatherFit</div>
-			<!-- 내비바 -->
-			<ul class="nav nav-underline">
-				<li class="nav-item"><a class="nav-link" href="#">홈</a></li>
-				<li class="nav-item"><a class="nav-link" href="gosearch.do">검색</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">팔로우</a></li>
-				<li class="nav-item"><a class="nav-link" href="gomessage.do">메시지</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="#">알림</a></li>
-				<li>
-					<!-- 세션이 null이 아니라면 프로필로 바뀌게하면 됨! --> <c:if test="${member==null}">
-						<button type="button" class="btn btn-primary" id="btn-login">로그인</button>
+		
+		
+			<!-- 네비바 -->	
+			
+		<ul class="nav nav-underline">
+				
+					<li class="nav-item"><a class="nav-link" id = "redirecthome">홈</a></li>
+			<c:choose>
+				<c:when test="${member==null}">
+					<li class="nav-item"><a class="nav-link" href="javascript:alert('회원가입ㄱ')">검색</a></li>
+					<li class="nav-item"><a class="nav-link" href="javascript:alert('회원가입ㄱ')">팔로우</a></li>
+					<li class="nav-item"><a class="nav-link" href="javascript:alert('회원가입ㄱ')">메시지</a></li>
+					<li class="nav-item"><a class="nav-link" href="javascript:alert('회원가입ㄱ')">알림</a></li>
+					<button type="button" class="btn btn-primary" id="btn-login">로그인</button>
+				</c:when>
+				
+				<c:when test="${member!=null}">
+					<li class="nav-item"><a class="nav-link" href="Search.do">검색</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">팔로우</a></li>
+					<li class="nav-item"><a class="nav-link" href="Message.do">메시지</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">알림</a></li>
+					<button type="button" class="btn btn-primary" id="btn-logout">로그아웃</button>
+				</c:when>
 
-					</c:if>
-					
-					<c:if test="${member!=null}">
-						<button type="button" class="btn btn-primary" id="btn-logout">로그아웃</button>
-					</c:if>
+			</c:choose>
+		</ul>
+		
+			<!-- 네비바 끝 -->
 
-				</li>
-			</ul>
+
+
+
+
+
 		</div>
 	</header>
 
@@ -71,20 +85,22 @@
 	<!-- 메인부분(토글버튼, 게시글 카드) -->
 	<main>
 		<div class="album bg-tertiary"></div>
-			<div class="container">
-				<!-- 토글 버튼 -->
-				<p class="d-flex justify-content-center">
-					<button type="button" class="btn btn-primary"
-						data-bs-toggle="button">최신</button>
-				</p>
-				<!-- 게시글 카드 -->
+		<div class="container">
+			<!-- 토글 버튼 -->
+			<p class="d-flex justify-content-center">
+				<button type="button" class="btn btn-primary"
+					data-bs-toggle="button">최신</button>
+			</p>
+			<!-- 게시글 카드 -->
 
-				<div>
-					<div id="ajaxcontainer" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"></div>   <!-- ajax게시판바로불러ㅓ오기 -->
-				</div>
-					
-				</div>
+			<div>
+				<div id="ajaxcontainer"
+					class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"></div>
+				<!-- ajax게시판바로불러오기 -->
 			</div>
+
+		</div>
+		</div>
 	</main>
 
 	<!-- 모달창 -->
@@ -134,36 +150,11 @@
 	</div>
 	<!-- 여기까지 모달 -->
 
-
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-<p id="ajaxtext">고고슁</p>
-<a href = "select">게시판</a>
+	
 	</main>
 
 
-	<script src="././assets/js/login.js"></script>
-	<script src="././assets/js/logout.js"></script>
+	<script src="././assets/js/login.js" defer></script>
 	<script src="././assets/js/notification.js"></script>
 	<script src="././assets/js/weatherwidget.js"></script>
 	<script src="././assets/js/postview.js"></script>

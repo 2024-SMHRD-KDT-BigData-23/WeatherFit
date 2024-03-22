@@ -31,27 +31,17 @@
             <div class="title">
                 WeatherFit
             </div>
+            
             <ul class="nav nav-underline">
-                <li class="nav-item">
-                    <a class="nav-link" href="home.html">홈</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">검색</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="follow.html">팔로우</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">메시지</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">알림</a>
-                </li>
-                <li>
-                    <!-- 세션이 null이 아니라면 프로필로 바뀌게하면 됨! -->
-                    <button type="button" class="btn btn-primary">로그인</button>
-                </li>
-            </ul>
+				
+					<li class="nav-item"><a class="nav-link" id = "redirecthome">홈</a></li>
+					<li class="nav-item"><a class="nav-link" href="Search.do">검색</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">팔로우</a></li>
+					<li class="nav-item"><a class="nav-link" href="Message.do">메시지</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">알림</a></li>
+					<button type="button" class="btn btn-primary" id="btn-logout">로그아웃</button>
+			</ul>
+			
         </div>
     </header>
     <main>
@@ -107,6 +97,7 @@
               <button onclick="sendMessage()">전송</button>
         </div>
     </main>
+    <script src="assets/js/login.js"></script>
     <script src="././assets/js/message.js"></script>
 </body>
 </html>

@@ -22,11 +22,20 @@ document.addEventListener("mouseup", function(e) {
 	}
 });
 
-
+			
+			
 $("#btn-login").click(function() {
-
-
 		let login = document.getElementById("btn-login");
-
 		showModal(login);
-})
+});
+
+$("#btn-logout").click(()=>{
+	location.href = "Logout.do"
+});
+$("#redirecthome").click(()=>{
+	location.href = "Home.do"
+});
+
+
+
+

@@ -7,16 +7,13 @@
 		type: "get",
 		dataType: "json",
 		success: function(posts) {
-
-
 			console.log(posts);
-			str = '<div class = "col">';
+		
+
 			$.each(posts, function(i) {
-				str += '<TD>' + posts[i].postIdx + '</TD>'
-				str += '<TD>' + posts[i].postContent + '</TD>'
-				str += '</TR>'
+				
 			});
-			$("#ajaxtext").append(str);
+			
 
 			let ajaxcontent =`
 				<div class="col-md-4">
