@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.database.DAO">
+   
+   <select id="login" parameterType="com.smhrd.model.UserVO" resultType="com.smhrd.model.UserVO">
+      select userId, userNick
+      from tb_user
+      where userId = #{userId} and userPw = #{userPw}
+   </select>
+
+   <insert id="join" parameterType="com.smhrd.model.UserVO">
+      insert into tb_user(userId, userPw, userName, userNick, userGender, userRegion, userWeight, userHeight)
+      values(#{userId},#{userPw},#{userName},#{userNick},#{userGender},#{userRegion},#{userWeight},#{userHeight})
+   </insert>
+
+   <update id="update" parameterType="com.smhrd.model.UserVO">
+      update tb_user
+      set userPw = #{userPw}, userNick=#{userNick}, userRegion = #{userRegion}, userWeight = #{userWeight}, userHeight = #{userHeight},
+      userProfileImg = #{userProfileImg}, userProfileInfo = #{userProfileInfo} 
+      where userId = #{userId}
+   </update>
+
+
+   <insert id="post" parameterType="com.smhrd.model.PostVO">
+      insert into tb_post (postContent, userId, hashTag)
+      values(#{postContent},#{userId},#{hashTag})
+   </insert>
+
+   <select id="getpost" resultType="map">
+   		select postContent, userNick from tb_post
+   		inner join tb_user on tb_post.userId = tb_user.userId
+   		order by postIdx desc;
+   </select>
+
+   <select id="Postselect" resultType="com.smhrd.model.PostVO">
+      select *
+      from tb_post
+   </select>
+
+  	<!-- 여기부터 인터넷 참고 -->
+  	
+	<select id="countbyLike" resultType="int" parameterType="HashMap">
+   SELECT COUNT(likeIdx) as cnt
+   FROM tb_like
+   WHERE postIdx=#{postIdx} AND userNick=#{userNick}
+  </select>
+
+  <insert id="create" parameterType="HashMap">
+    INSERT INTO tb_like(likeIdx, postIdx, userNick, likeCheck) 
+    VALUES ((SELECT NVL(MAX(likeIdx), 0) + 1 as likeIdx FROM tb_like),
+                 #{postIdx}, #{userNick}, 0)
+  </insert>
+    
+  <update id="likeCheck" parameterType="HashMap">
+    UPDATE tb_like
+    SET likeCheck = likeCheck + 1 
+    WHERE userNick=#{userNick} AND postIdx=#{postIdx}
+  </update>
+  
+  <update id="likeCheckCancel" parameterType="HashMap">
+    UPDATE tb_like
+    SET likeCheck = 0
+    WHERE userNick=#{userNick} AND postIdx=#{postIdx}
+  </update>
+  
+  <select id="read" resultType="com.smhrd.model.LikeVO" parameterType="HashMap">
+    SELECT likeIdx, postIdx, userNick, likeCheck 
+    FROM tb_like
+    WHERE postIdx=#{postIdx} AND userNick=#{userNick}
+  </select>
+  
+  <delete id="deletebypostIdx" parameterType="int">
+    DELETE FROM tb_like
+    WHERE postIdx=#{postIdx}
+  </delete>
+  
+  <delete id="deletebyuserNick" parameterType="int">
+    DELETE FROM tb_like
+    WHERE userNick=#{userNick}
+  </delete>
+
+	<!-- 여기까지 인터넷 참고 -->
+
+	<select id="selectUserNick" parameterType="com.smhrd.model.UserVO">
+	select userNick
+	from tb_user
+	where userId = #{userId}
+	</select>
+	
+	<insert id="insertPostLike" parameterType="com.smhrd.model.LikeVO">
+	insert into tb_like(postIdx, userNick, likeCheck)
+	values (#{postIdx}, #{userNick}, #{likeCheck})
+	</insert>
+
+</mapper>

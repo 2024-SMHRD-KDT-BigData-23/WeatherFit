@@ -25,6 +25,8 @@ public class PostVO {
 
 	    // 글 좋아요수 
 	    private int postLikes;
+	    
+	    private String myLiked;
 
 	    // 해시 태그 
 	    private String hashTag;
@@ -100,9 +102,15 @@ public class PostVO {
 		public PostVO() {
 
 		}
-		public PostVO(int postIdx, String postContent, String userId, int postViews, int postLikes, String hashTag) {
+	
+
+	
+
+		public PostVO(int postIdx, String postContent, Timestamp createdAt, String userId, int postViews, int postLikes,
+				String myLiked, String hashTag) {
 			this.postIdx = postIdx;
 			this.postContent = postContent;
+			this.createdAt = createdAt;
 			this.userId = userId;
 			this.postViews = postViews;
 			this.postLikes = postLikes;

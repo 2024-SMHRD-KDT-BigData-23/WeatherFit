@@ -45,6 +45,7 @@ public class FrontController extends HttpServlet {
 		map.put("TestGo.do", new TestGo());
 		map.put("Postselect.do", new Postselect());
 		map.put("Update.do", new Update());
+	//	map.put("Like.do", new Like());
 
 		map.put("GetPost.do", new GetPost());
 
