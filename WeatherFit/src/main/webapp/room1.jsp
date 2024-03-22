@@ -10,51 +10,27 @@
 <link rel="stylesheet" href="assets/css/message.css">
 </head>
 <body>
-	<%
-	session.setAttribute("userId", "ehdwn123");
-	%>
-	<%=session.getAttribute("userId")%>
-	<main>
-		<button class="chat-room1" value="1001">채팅방1</button>
-		<button class="chat-room2" value="1002">채팅방2</button>
-		<button class="chat-room3" value="1003">채팅방3</button>
-
-		<!-- <div class="container">
-			<div class="chat-container" id="chat-container">
-				채팅 메시지가 표시될 영역
-			</div>
-			<input type="text" id="message-input" placeholder="메시지를 입력하세요...">
-			<button onclick="sendMessage()">전송</button>
-		</div> -->
-	</main>
-
+	<% session.setAttribute("chatroom", "1"); %>
+	<%= session.getAttribute("chatroom") %>
+	<div class="container">
+		<div class="chat-container" id="chat-container">
+			<!-- 채팅 메시지가 표시될 영역 -->
+		</div>
+		<input type="text" id="message-input" placeholder="메시지를 입력하세요...">
+		<button onclick="sendMessage()">전송</button>
+	</div>
 	<script>
-		$(".chat-room1").on("click", function(event) {
-			location.href = "room1.jsp";
-		});
-		
-		$(".chat-room2").on("click", function(event) {
-			location.href = "room2.jsp";
-		});
-	</script>
-	<%-- <script type="text/javascript">
-		// https://nomadhappy.tistory.com/4
-		/* $(document).ready(function() {
-			// 웹소켓 초기화
-			webSocketInit();
-		}); */
-
-		// 웹소켓 생성
-		let webSocket;
-		let roomIdx;
 		let path;
+		path = "ws://localhost:8080/WeatherFit/websocket/" + <%= session.getAttribute("chatroom") %>
 		
-		$("button").on("click", function(event) {
-			roomIdx = event.target.value;
-			path = "ws://localhost:8080/WeatherFit/websocket/" + roomIdx;
+		$(document).ready(function() {
+			// 웹소켓 초기화
 			webSocketInit(path);
 		});
-
+		
+		// 웹소켓 생성
+		let webSocket;
+		
 		function sendMessage() {
 			let message = $("#message-input").val();
 			socketMsgSend(message);
@@ -63,7 +39,7 @@
 
 		function webSocketInit(path) {
 			/* webSocket = new WebSocket(
-					"ws://localhost:8080/WeatherFit/websocket"); */
+					"ws://localhost:8080/WeatherFit/websocket/1"); */
 			webSocket = new WebSocket(
 					path);
 			webSocket.onopen = function(event) {
@@ -98,8 +74,8 @@
 				type : "TALK",
 				roomIdx : 1,
 				value : sendMessage,
-				userId : '<%= (String)session.getAttribute("userId") %>'
-				// seq : $("#seq").val()
+				userId : '<%=(String) session.getAttribute("userId")%>'
+			// seq : $("#seq").val()
 			};
 			// 세션리스트에 메시지를 송신한다.
 			// webSocket.send(msg)
@@ -139,6 +115,6 @@
 				messageInput.value = ''; // 입력란을 비웁니다.
 			}
 		}
-	</script> --%>
+	</script>
 </body>
 </html>
