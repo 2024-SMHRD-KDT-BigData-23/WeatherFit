@@ -22,7 +22,9 @@ document.addEventListener("mouseup", function(e) {
 	}
 });
 
+
 $("#btn-login").click(function() {
+
 
 		let login = document.getElementById("btn-login");
 

@@ -2,13 +2,16 @@ package com.smhrd.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-public class TestGo implements Command {
+public class Message implements Command {
 
-	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		return "redirect:/gopost.do";
+		String message = request.getParameter("message");
+		
+		HttpSession session = request.getSession();	
+		
+		return message;
 	}
 	
 }

@@ -103,8 +103,11 @@
             <div class="chat-container" id="chat-container">
                 <!-- 채팅 메시지가 표시될 영역 -->
               </div>
-              <input type="text" id="message-input" placeholder="메시지를 입력하세요...">
-              <button onclick="sendMessage()">전송</button>
+            <form action="Message.do" method="post">
+              <input type="text" id="message-input" name="message" placeholder="메시지를 입력하세요...">
+              <input type="submit" value="전송">
+              <!-- <button onclick="sendMessage()">전송</button> -->
+            </form>
         </div>
     </main>
     <!-- <script src="././assets/js/message.js"></script> -->
