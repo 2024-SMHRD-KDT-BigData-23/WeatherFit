@@ -29,7 +29,8 @@ public class ChatVO {
     public ChatVO() {
     	
 	}
-
+    
+    
 	public ChatVO(int chatIdx, int roomIdx, String chatter, String chat, String emoticon, Timestamp chattedAt) {
 		this.chatIdx = chatIdx;
 		this.roomIdx = roomIdx;

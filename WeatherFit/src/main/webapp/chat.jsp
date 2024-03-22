@@ -10,23 +10,33 @@
 <link rel="stylesheet" href="assets/css/message.css">
 </head>
 <body>
-	<div class="container">
-		<div class="chat-container" id="chat-container">
-			<!-- 채팅 메시지가 표시될 영역 -->
+<% session.setAttribute("userId", "ehdwn123"); %>
+<%= session.getAttribute("userId") %>
+	<main>
+		<button class="chat-room1">채팅방1</button>
+		<button class="chat-room2">채팅방2</button>
+		<button class="chat-room3">채팅방3</button>
+
+		<div class="container">
+			<div class="chat-container" id="chat-container">
+				<!-- 채팅 메시지가 표시될 영역 -->
+			</div>
+			<input type="text" id="message-input" placeholder="메시지를 입력하세요...">
+			<button onclick="sendMessage()">전송</button>
 		</div>
-		<input type="text" id="message-input" placeholder="메시지를 입력하세요...">
-		<button onclick="sendMessage()">전송</button>
-	</div>
+	</main>
 
 	<script type="text/javascript">
 		// https://nomadhappy.tistory.com/4
-		$(document).ready(function() {
-			// 웹소켓 초기화
-			webSocketInit();
+		$(".chat-room1").on("click", function() {
+			$(document).ready(function() {
+				// 웹소켓 초기화
+				webSocketInit();
+			});
+	
+			// 웹소켓 생성
+			let webSocket;			
 		});
-
-		// 웹소켓 생성
-		let webSocket;
 
 		function sendMessage() {
 			let message = $("#message-input").val();
@@ -78,7 +88,9 @@
 		// 웹소켓 메시지 수신
 		function socketMessage(event) {
 			let receiveData = event.data; // 수신 data
-			alert("수신된 msg : " + receiveData);
+			console.log("수신된 msg : " + receiveData);
+			let message = JSON.parse(receiveData);
+
 		}
 
 		// 웹소켓 에러
@@ -90,7 +102,7 @@
 		function disconnect() {
 			webSocket.close();
 		}
-		
+
 		// html에 채팅 내용 추가 
 		function messageView() {
 			const messageInput = document.getElementById('message-input');

@@ -41,8 +41,15 @@
       from tb_post
    </select>
 
+	<insert id="sendChat" parameterType="com.smhrd.model.ChatVO">
+		insert into tb_chat(roomIdx, chatter, chat, emoticon)
+		values (#{roomIdx}, #{chatter}, #{chat}, #{emoticon})
+	</insert>
 
-
-
+	<select id="receiveChat" resultType="com.smhrd.model.ChatVO">
+		select *
+		from tb_chat
+		where roomIdx = #{roomIdx}
+	</select>
 
 </mapper>
