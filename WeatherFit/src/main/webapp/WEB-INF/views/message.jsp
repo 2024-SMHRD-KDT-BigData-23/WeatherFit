@@ -20,83 +20,96 @@
 <!-- jquery -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="././assets/css/message.css">
 </head>
 <body>
 	<header class="p-3 bg-light">
-		<div
-			class="container d-flex align-items-center justify-content-between">
-			<div class="logo">WeatherWidget</div>
-			<div class="title">WeatherFit</div>
-			<ul class="nav nav-underline">
-				<li class="nav-item"><a class="nav-link" href="main.jsp">홈</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="search.jsp">검색</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="#">팔로우</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="message.jsp">메시지</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">알림</a></li>
-				<li>
-					<!-- 세션이 null이 아니라면 프로필로 바뀌게하면 됨! -->
-					<button type=o "buttn" class="btn btn-primary">로그인</button>
-				</li>
-			</ul>
-		</div>
-	</header>
-	<main>
-		<div class="container-fluid d-flex p-3 bg-light">
-			<ul class="nav mb-auto">
-				<li class="nav-item"><a href="#" class="nav-link active"
-					aria-current="page"> <svg class="bi pe-none me-2" width="16"
-							height="16">
+        <div class="container d-flex align-items-center justify-content-between">
+            <div class="logo">
+                WeatherWidget
+            </div>
+            <div class="title">
+                WeatherFit
+            </div>
+            <ul class="nav nav-underline">
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html">홈</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">검색</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="follow.html">팔로우</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">메시지</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">알림</a>
+                </li>
+                <li>
+                    <!-- 세션이 null이 아니라면 프로필로 바뀌게하면 됨! -->
+                    <button type="button" class="btn btn-primary">로그인</button>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div class="container-fluid d-flex p-3 bg-light">
+            <ul class="nav mb-auto">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active" aria-current="page">
+                        <svg class="bi pe-none me-2" width="16" height="16">
                             <use xlink:href="#home" />
-                        </svg> Chatroom1
-				</a></li>
-				<li><a href="#" class="nav-link"> <svg
-							class="bi pe-none me-2" width="16" height="16">
+                        </svg>
+                        Chatroom1
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link">
+                        <svg class="bi pe-none me-2" width="16" height="16">
                             <use xlink:href="#speedometer2" />
-                        </svg> Chatroom2
-				</a></li>
-				<li><a href="#" class="nav-link"> <svg
-							class="bi pe-none me-2" width="16" height="16">
+                        </svg>
+                        Chatroom2
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link">
+                        <svg class="bi pe-none me-2" width="16" height="16">
                             <use xlink:href="#table" />
-                        </svg> Chatroom3
-				</a></li>
-				<li><a href="#" class="nav-link"> <svg
-							class="bi pe-none me-2" width="16" height="16">
+                        </svg>
+                        Chatroom3
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link">
+                        <svg class="bi pe-none me-2" width="16" height="16">
                             <use xlink:href="#grid" />
-                        </svg> Chatroom4
-				</a></li>
-				<li><a href="#" class="nav-link"> <svg
-							class="bi pe-none me-2" width="16" height="16">
+                        </svg>
+                        Chatroom4
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link">
+                        <svg class="bi pe-none me-2" width="16" height="16">
                             <use xlink:href="#people-circle" />
-                        </svg> Chatroom5
-				</a></li>
-			</ul>
-		</div>
-		<div class="container">
-			<div class="align-items-bottom">
-				<li class="d-flex flex-row-reverse align-items-end my-3"><span
-					class="chat-box mine ms-1">${a.data().content}</span> <span
-					class="tx-small text-end"> ${datejs.format('M월D일 HH:mm')} </span></li>
-				<li class="d-flex flex-row align-items-end my-3"><span
-					class="chat-box me-1">${a.data().content}</span> <span
-					class="tx-small"> ${datejs.format('M월D일 HH:mm')} </span></li>
-				<li class="d-flex flex-row align-items-end my-3"><span
-					class="chat-box me-1">${a.data().content}</span> <span
-					class="tx-small"> ${datejs.format('M월D일 HH:mm')} </span></li>
-				<li class="d-flex flex-row-reverse align-items-end my-3"><span
-					class="chat-box mine ms-1">${a.data().content}</span> <span
-					class="tx-small text-end"> ${datejs.format('M월D일 HH:mm')} </span></li>
-			</div>
-			<div>
-				<form class="d-flex" action="#">
-					<input class="form-control" type="text" placeholder="메시지 입력"
-						aria-label="default input example"> <input type="submit"
-						value="보내기">
-				</form>
-			</div>
-		</div>
-		</div>
+                        </svg>
+                        Chatroom5
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="container">
+            <div class="chat-container" id="chat-container">
+                <!-- 채팅 메시지가 표시될 영역 -->
+              </div>
+            <form action="Message.do" method="post">
+              <input type="text" id="message-input" name="message" placeholder="메시지를 입력하세요...">
+              <input type="submit" value="전송">
+              <!-- <button onclick="sendMessage()">전송</button> -->
+            </form>
+        </div>
+    </main>
+    <script src="././assets/js/message.js"></script>
 </body>
 </html>

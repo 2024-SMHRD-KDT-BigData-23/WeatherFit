@@ -28,12 +28,16 @@
       values(#{postContent},#{userId},#{hashTag})
    </insert>
 
-   <select id="getpost">
-      select * from tb_post order by postIdx desc
+   <select id="getpost" resultType="map">
+   		select postContent, userNick from tb_post
+   		inner join tb_user on tb_post.userId = tb_user.userId
+   		order by postIdx desc;
+   
+
    </select>
 
    <select id="Postselect" resultType="com.smhrd.model.PostVO">
-      select userId, postContent, hashTag
+      select *
       from tb_post
    </select>
 
