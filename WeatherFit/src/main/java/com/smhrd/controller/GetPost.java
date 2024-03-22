@@ -12,10 +12,8 @@ public class GetPost implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 
 		DAO dao = new DAO();
-		PostVO vo = new PostVO();
 		
-		dao.getpost();
-		
+		request.setAttribute("allpost", dao.getpost());
 		
 		
 		
@@ -24,7 +22,8 @@ public class GetPost implements Command {
 		
 		
 		
-		return null;
+		
+		return "main";
 	}
 	
 	
