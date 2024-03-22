@@ -1,4 +1,4 @@
-function sendMessage() {
+$("#message-input").on("click",function() {
 	const messageInput = document.getElementById('message-input');
 	const message = messageInput.value;
 
@@ -10,4 +10,4 @@ function sendMessage() {
 		chatContainer.appendChild(messageElement);
 		messageInput.value = ''; // 입력란을 비웁니다.
 	}
-}
+})
