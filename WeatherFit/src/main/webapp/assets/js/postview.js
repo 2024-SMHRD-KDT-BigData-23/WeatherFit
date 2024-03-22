@@ -42,7 +42,7 @@
 					</div>
 				</div>`;
 
-		for (var i = 0; i < 20; i++) {
+		for (let i = 0; i < 30; i++) {
         $('#ajaxcontainer').append(`
 				<div class="col-md-4">
 					<div class="card shadow-sm">
@@ -61,7 +61,7 @@
 									<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
 									<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
 								</div>
-								<small class="text-body-secondary">9 mins</small>
+								<small class="text-body-secondary">`+ posts[i].createdAt +`</small>
 							</div>
 						</div>
 					</div>
