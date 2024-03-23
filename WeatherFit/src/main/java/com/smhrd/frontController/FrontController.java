@@ -1,7 +1,6 @@
 package com.smhrd.frontController;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.servlet.RequestDispatcher;
@@ -10,16 +9,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.smhrd.controller.Command;
+import com.smhrd.controller.CreateRoom;
 import com.smhrd.controller.GetPost;
 import com.smhrd.controller.Join;
 //import com.smhrd.controller.EmailCheck;
 //import com.smhrd.controller.Join;
 import com.smhrd.controller.Login;
 import com.smhrd.controller.Logout;
-import com.smhrd.controller.Message;
 import com.smhrd.controller.Post;
 import com.smhrd.controller.Postselect;
 import com.smhrd.controller.TestGo;
@@ -27,8 +25,6 @@ import com.smhrd.controller.Update;
 //import com.smhrd.controller.Logout;
 //import com.smhrd.controller.SelectAll;
 //import com.smhrd.controller.Update;
-import com.smhrd.database.DAO;
-import com.smhrd.model.UserVO;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -45,9 +41,8 @@ public class FrontController extends HttpServlet {
 		map.put("TestGo.do", new TestGo());
 		map.put("Postselect.do", new Postselect());
 		map.put("Update.do", new Update());
-
 		map.put("GetPost.do", new GetPost());
-
+		map.put("CreateRoom.do", new CreateRoom());
 //		map.put("EmailCheck.do", new EmailCheck());
 	}
 
