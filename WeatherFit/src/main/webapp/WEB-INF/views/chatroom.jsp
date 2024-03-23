@@ -5,13 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<link rel="stylesheet" href="assets/css/message.css">
 </head>
 <body>
-	<% session.setAttribute("chatroom", "1"); %>
-	<%= session.getAttribute("chatroom") %>
 	<div class="container">
 		<div class="chat-container" id="chat-container">
 			<!-- 채팅 메시지가 표시될 영역 -->
@@ -21,7 +16,7 @@
 	</div>
 	<script>
 		let path;
-		path = "ws://localhost:8080/WeatherFit/websocket/" + <%= session.getAttribute("chatroom") %>
+		path = "ws://localhost:8080/WeatherFit/websocket/" + <%=session.getAttribute("chatroom")%>
 		
 		$(document).ready(function() {
 			// 웹소켓 초기화
@@ -74,7 +69,8 @@
 				type : "TALK",
 				roomIdx : 1,
 				value : sendMessage,
-				userId : '<%=(String) session.getAttribute("userId")%>'
+				userId : '<%=(String) session.getAttribute("userId")%>
+		'
 			// seq : $("#seq").val()
 			};
 			// 세션리스트에 메시지를 송신한다.

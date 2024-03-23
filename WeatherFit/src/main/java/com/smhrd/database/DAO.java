@@ -8,7 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.smhrd.model.ChatVO;
 import com.smhrd.model.PostVO;
-
+import com.smhrd.model.RoomVO;
 import com.smhrd.model.UserVO;
 
 public class DAO {
@@ -78,6 +78,27 @@ public class DAO {
 	public List<ChatVO> receiveChat(int roomIdx) {
 		SqlSession session = factory.openSession();
 		List<ChatVO> resultList = session.selectList("receiveChat", roomIdx);
+		session.close();
+		return resultList;
+	}
+
+	public int createRoom(RoomVO rvo) {
+		SqlSession session = factory.openSession(true);
+		int row = session.insert("createRoom", rvo);
+		session.close();
+		return row;
+	}
+
+	public List<RoomVO> selectRooms(RoomVO rvo) {
+		SqlSession session = factory.openSession();
+		List<RoomVO> resultList = session.selectList("selectRooms", rvo);
+		session.close();
+		return resultList;
+	}
+
+	public List<ChatVO> selectChats(ChatVO cvo) {
+		SqlSession session = factory.openSession();
+		List<ChatVO> resultList = session.selectList("selectChats", cvo);
 		session.close();
 		return resultList;
 	}
