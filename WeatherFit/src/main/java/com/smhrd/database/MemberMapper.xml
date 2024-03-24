@@ -40,6 +40,28 @@
       select *
       from tb_post
    </select>
+   
+   <insert id="sendChat" parameterType="com.smhrd.model.ChatVO">
+		insert into tb_chat(roomIdx, chatter, chat, emoticon)
+		values (#{roomIdx}, #{chatter}, #{chat}, #{emoticon})
+	</insert>
+
+	<select id="selectChats" parameterType="com.smhrd.model.ChatVO" resultType="com.smhrd.model.ChatVO">
+		select *
+		from tb_chat
+		where roomIdx = #{roomIdx}
+	</select>
+	
+	<insert id="createRoom" parameterType="com.smhrd.model.RoomVO">
+		insert into tb_room(roomTitle, userId, roomLimit, roomStatus)
+		values (#{roomTitle}, #{userId}, #{roomLimit}, #{roomStatus})
+	</insert>
+	
+	<select id="selectRooms" parameterType="com.smhrd.model.RoomVO" resultType="com.smhrd.model.RoomVO">
+		select *
+		from tb_room
+		where userId=#{userId}
+	</select>
 
 	<select id="search" resultType="map">
 		select postContent, postIdx, hashTag, userNick 

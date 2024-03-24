@@ -26,7 +26,10 @@
 <script src="https://kit.fontawesome.com/cf3cd4698d.js"
 	crossorigin="anonymous"></script>
 
-<link rel="stylesheet" href="assets/css/login.css">
+<link rel="stylesheet" href="././assets/css/update.css">
+<link rel="stylesheet" href="././assets/css/login.css">
+<link rel="stylesheet" href="././assets/css/join.css">
+<link rel="stylesheet" href="././assets/css/modal.css">
 </head>
 <body>
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -169,11 +172,13 @@
 	
 	
 
-
-	<script src="././assets/js/login.js" defer></script>
+	<script src="././assets/js/postdetail.js"></script>
+	<script src="././assets/js/update.js"></script>
+	<script src="././assets/js/login.js"></script>
+	<script src="././assets/js/join.js"></script>
 	<script src="././assets/js/notification.js"></script>
-	<script src="././assets/js/postview.js?ver=<%=System.currentTimeMillis()%>"></script>
 	<script src="././assets/js/weatherwidget.js"></script>
+	<script src="././assets/js/postview.js?ver=<%=System.currentTimeMillis()%>"></script>
 
 </body>
 </html>

@@ -22,6 +22,7 @@ import com.smhrd.controller.Logout;
 import com.smhrd.controller.Post;
 import com.smhrd.controller.Postselect;
 import com.smhrd.controller.Search;
+import com.smhrd.controller.TestGo;
 import com.smhrd.controller.Message;
 import com.smhrd.controller.Update;
 //import com.smhrd.controller.Logout;
@@ -45,9 +46,10 @@ public class FrontController extends HttpServlet {
 		map.put("Postselect.do", new Postselect());
 		map.put("Update.do", new Update());
 		map.put("GetPost.do", new GetPost());
-		
+		map.put("CreateRoom.do", new CreateRoom());
 		
 		// 단순 이동 기능
+		map.put("TestGo.do", new TestGo());
 		map.put("Message.do", new Message());
 		map.put("Home.do", new Home());
 		map.put("Search.do", new Search());
