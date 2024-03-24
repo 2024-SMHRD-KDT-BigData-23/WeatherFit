@@ -12,7 +12,7 @@ $("document").on("click", ".card", function() {
 
 // 채팅 버튼 클릭시 채팅페이지로 
 document.getElementById("message-wrap").addEventListener("click", function () {
-    window.location.href = 'gomessage.do'
+    window.location.href = 'gochat.do'
 });
 
 
