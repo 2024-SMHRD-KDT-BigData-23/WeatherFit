@@ -25,15 +25,11 @@
 <!-- fontawesome -->
 <script src="https://kit.fontawesome.com/cf3cd4698d.js"
 	crossorigin="anonymous"></script>
-	
-	
 
 <link rel="stylesheet" href="././assets/css/update.css">
 <link rel="stylesheet" href="././assets/css/login.css">
 <link rel="stylesheet" href="././assets/css/join.css">
 <link rel="stylesheet" href="././assets/css/modal.css">
-
-
 </head>
 <body>
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -71,8 +67,6 @@
 						<button type="button" class="btn btn-primary" id="btn-logout">로그아웃</button>
 					</c:if>
 
-				</li>
-			</ul>
 		</div>
 	</header>
 
@@ -242,18 +236,33 @@
 
 	</div>
 	<!-- 여기까지 모달 -->
-
-
+	<div class="row">
+		<div class="modal" id="contentmodal" tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						모달 헤더입니다
+						<button class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<div class="modal-body" style="text-align:center;">
+						모달보디입니다
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	
 
 	<script src="././assets/js/postdetail.js"></script>
 	<script src="././assets/js/update.js"></script>
 	<script src="././assets/js/login.js"></script>
 	<script src="././assets/js/join.js"></script>
-	<script src="././assets/js/logout.js"></script>
 	<script src="././assets/js/notification.js"></script>
 	<script src="././assets/js/weatherwidget.js"></script>
-	<script src="././assets/js/postview.js"></script>
-	<script src="././assets/js/validate.js"></script>
+	<script src="././assets/js/postview.js?ver=<%=System.currentTimeMillis()%>"></script>
 
 </body>
 </html>
