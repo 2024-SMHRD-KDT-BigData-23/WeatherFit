@@ -1,41 +1,26 @@
-function showModal(target) {
-	modal.style.display = "block";
-	body.style.overflow = "hidden";
+// 로그인 버튼 클릭시 로그인 모달창 띄우기
 
-	modalbody.innerHTML += `
-          <div class="close" onclick="removeModal()"> x </div>
-        `}
 
-function removeModal() {
-	modal.style.display = "none";
-	body.style.overflow = "auto";
-}
+document.addEventListener("DOMContentLoaded", function() {
+	document.getElementById("btn-login").addEventListener("click", function() {
+		showLoginModal();
+	});
 
-let body = document.querySelector("body");
-let modal = document.getElementById("modal");
-let modalbody = document.getElementById("modal-body");
-
-document.addEventListener("mouseup", function(e) {
-	if (!modalbody.contains(e.target)) {
-		modal.style.display = "none";
-		body.style.overflow = "auto";
+	function showLoginModal() {
+		//
+		document.getElementById("modal").style.display = "block";
+		document.querySelector("body").style.overflow = "hidden";
+		document.getElementById("modal-body-login").style.display = "block";
+		document.getElementById("modal-body-join").style.display = "none";
+		// 닫기버튼 클릭시 닫힘
+		document.getElementsByClassName("btn-close")[0].addEventListener("click", function() {
+			removeModal();
+		})
 	}
+
+	function removeModal() {
+		document.getElementById("modal").style.display = "none";
+		document.querySelector("body").style.overflow = "auto";
+	}
+
 });
-
-			
-			
-$("#btn-login").click(function() {
-		let login = document.getElementById("btn-login");
-		showModal(login);
-});
-
-$("#btn-logout").click(()=>{
-	location.href = "Logout.do"
-});
-$("#redirecthome").click(()=>{
-	location.href = "Home.do"
-});
-
-
-
-

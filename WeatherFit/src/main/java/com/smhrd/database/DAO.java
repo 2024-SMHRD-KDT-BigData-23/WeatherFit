@@ -121,6 +121,39 @@ public class DAO {
 	
 	
 	
+	public int sendChat(ChatVO cvo) {
+		SqlSession session = factory.openSession(true);
+		int row = session.insert("sendChat", cvo);
+		session.close();
+		return row;
+	}
 	
+	public List<ChatVO> receiveChat(int roomIdx) {
+		SqlSession session = factory.openSession();
+		List<ChatVO> resultList = session.selectList("receiveChat", roomIdx);
+		session.close();
+		return resultList;
+	}
+
+	public int createRoom(RoomVO rvo) {
+		SqlSession session = factory.openSession(true);
+		int row = session.insert("createRoom", rvo);
+		session.close();
+		return row;
+	}
+
+	public List<RoomVO> selectRooms(RoomVO rvo) {
+		SqlSession session = factory.openSession();
+		List<RoomVO> resultList = session.selectList("selectRooms", rvo);
+		session.close();
+		return resultList;
+	}
+
+	public List<ChatVO> selectChats(ChatVO cvo) {
+		SqlSession session = factory.openSession();
+		List<ChatVO> resultList = session.selectList("selectChats", cvo);
+		session.close();
+		return resultList;
+	}
 	
 }

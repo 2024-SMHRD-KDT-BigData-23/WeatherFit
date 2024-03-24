@@ -1,6 +1,6 @@
 package com.smhrd.frontController;
+
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.servlet.RequestDispatcher;
@@ -9,9 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.smhrd.controller.Command;
+import com.smhrd.controller.CreateRoom;
 import com.smhrd.controller.GetPost;
 import com.smhrd.controller.Home;
 import com.smhrd.controller.Join;
@@ -29,14 +29,12 @@ import com.smhrd.controller.Update;
 //import com.smhrd.controller.SelectAll;
 //import com.smhrd.controller.Update;
 
-
-
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private HashMap<String, Command> map = new HashMap<String, Command>();
-	
+
 	@Override
 	public void init() throws ServletException {
 		map.put("Join.do", new Join());
@@ -62,24 +60,24 @@ public class FrontController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String uri = request.getRequestURI();
-		String cp = request.getContextPath();
-		String path = uri.substring(cp.length() + 1);
-		
+		String uri = request.getRequestURI(); // /WeatherFit/gomessage.do
+		String cp = request.getContextPath(); // /WeatherFit
+		String path = uri.substring(cp.length() + 1); // gomessage.do
+
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
-		
+
 		String finalPath = null;
 		Command com = map.get(path);
-		
-		if(path.startsWith("go")) {
-			finalPath = path.replace("go", "").replace(".do", "");
+
+		if (path.startsWith("go")) {
+			finalPath = path.replace("go", "").replace(".do", ""); // message
 		} else {
 			finalPath = com.execute(request, response);
 		}
-		
-		if(finalPath == null) {
-			
+
+		if (finalPath == null) {
+
 		} else if (finalPath.contains("redirect:/")) {
 			response.sendRedirect(finalPath.split("/")[1]);
 		} else {
