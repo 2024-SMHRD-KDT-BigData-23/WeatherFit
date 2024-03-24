@@ -5,9 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<link rel="stylesheet" href="assets/css/message.css">
 </head>
 <body>
 	<div class="container">
@@ -17,26 +14,29 @@
 		<input type="text" id="message-input" placeholder="메시지를 입력하세요...">
 		<button onclick="sendMessage()">전송</button>
 	</div>
-
-	<script type="text/javascript">
-		// https://nomadhappy.tistory.com/4
+	<script>
+		let path;
+		path = "ws://localhost:8080/WeatherFit/websocket/" + <%=session.getAttribute("chatroom")%>
+		
 		$(document).ready(function() {
 			// 웹소켓 초기화
-			webSocketInit();
+			webSocketInit(path);
 		});
-
+		
 		// 웹소켓 생성
 		let webSocket;
-
+		
 		function sendMessage() {
 			let message = $("#message-input").val();
 			socketMsgSend(message);
 			messageView();
 		}
 
-		function webSocketInit() {
+		function webSocketInit(path) {
+			/* webSocket = new WebSocket(
+					"ws://localhost:8080/WeatherFit/websocket/1"); */
 			webSocket = new WebSocket(
-					"ws://localhost:8080/WeatherFit/websocket");
+					path);
 			webSocket.onopen = function(event) {
 				socketOpen(event);
 			};
@@ -66,9 +66,12 @@
 		// 메시지 송신
 		function socketMsgSend(sendMessage) {
 			let msg = {
-				type : "message",
+				type : "TALK",
+				roomIdx : 1,
 				value : sendMessage,
-				seq : $("#seq").val()
+				userId : '<%=(String) session.getAttribute("userId")%>
+		'
+			// seq : $("#seq").val()
 			};
 			// 세션리스트에 메시지를 송신한다.
 			// webSocket.send(msg)
@@ -78,7 +81,10 @@
 		// 웹소켓 메시지 수신
 		function socketMessage(event) {
 			let receiveData = event.data; // 수신 data
-			alert("수신된 msg : " + receiveData);
+			console.log("수신된 msg : " + receiveData);
+			console.log(typeof receiveData);
+			let message = JSON.parse(receiveData);
+
 		}
 
 		// 웹소켓 에러
@@ -90,7 +96,7 @@
 		function disconnect() {
 			webSocket.close();
 		}
-		
+
 		// html에 채팅 내용 추가 
 		function messageView() {
 			const messageInput = document.getElementById('message-input');
