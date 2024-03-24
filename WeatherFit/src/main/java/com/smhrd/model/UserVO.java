@@ -1,5 +1,7 @@
 package com.smhrd.model;
 
+import java.sql.Timestamp;
+
 //회원 
 public class UserVO {
 
@@ -13,7 +15,7 @@ public class UserVO {
    private String userName;
 
    // 회원 성별
-   private int userGender;
+   private String userGender;
 
    // 회원 닉네임
    private String userNick;
@@ -22,13 +24,13 @@ public class UserVO {
    private String userRegion;
 
    // 회원 가입일자
-   private int joinedAt;
+   private Timestamp joinedAt;
 
    // 회원 키
-   private Double userHeight;
+   private double userHeight;
 
    // 회원 몸무게
-   private Double userWeight;
+   private double userWeight;
 
    // 회원 프로필이미지
    private String userProfileImg;
@@ -67,11 +69,11 @@ public class UserVO {
      this.userName = userName;
  }
 
- public int getUserGender() {
+ public String getUserGender() {
      return userGender;
  }
 
- public void setUserGender(int userGender) {
+ public void setUserGender(String userGender) {
      this.userGender = userGender;
  }
 
@@ -91,11 +93,11 @@ public class UserVO {
      this.userRegion = userRegion;
  }
 
- public int getJoinedAt() {
+ public Timestamp getJoinedAt() {
      return joinedAt;
  }
 
- public void setJoinedAt(int joinedAt) {
+ public void setJoinedAt(Timestamp joinedAt) {
      this.joinedAt = joinedAt;
  }
 
@@ -112,7 +114,7 @@ public class UserVO {
  }
 
 
-   public void setUserWeight(Double userWeight) {
+   public void setUserWeight(double userWeight) {
       this.userWeight = userWeight;
    }
 
@@ -135,8 +137,8 @@ public class UserVO {
 
    
 
-   public UserVO(String userId, String userPw, String userName, int userGender, String userNick, String userRegion,
-         Double userHeight, Double userWeight, String userProfileImg, String userProfileInfo) {
+   public UserVO(String userId, String userPw, String userName, String userGender, String userNick, String userRegion,
+         Timestamp joinedAt, double userHeight, double userWeight, String userProfileImg, String userProfileInfo) {
 
       this.userId = userId;
       this.userPw = userPw;
@@ -144,6 +146,7 @@ public class UserVO {
       this.userGender = userGender;
       this.userNick = userNick;
       this.userRegion = userRegion;
+      this.joinedAt = joinedAt;
       this.userHeight = userHeight;
       this.userProfileImg = userProfileImg;
       this.userProfileInfo = userProfileInfo;

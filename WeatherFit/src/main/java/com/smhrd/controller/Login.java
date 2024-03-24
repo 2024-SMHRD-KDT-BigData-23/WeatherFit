@@ -27,7 +27,7 @@ public class Login implements Command {
 		if(resultVO != null) {
 			System.out.println("null이아닌데요?");
 			HttpSession session = request.getSession();
-			session.setAttribute("member", resultVO);	// <<<<
+			session.setAttribute("userVO", resultVO);	// <<<<
 		}
 		// 로그인 완료 후 메인페이지
     

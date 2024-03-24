@@ -14,7 +14,7 @@ public class Join implements Command {
 	    String userPw = request.getParameter("userPw");
 	    String userName = request.getParameter("userName");
 	    String userNick = request.getParameter("userNick");
-	    int userGender = Integer.parseInt(request.getParameter("userGender"));
+	    String userGender = request.getParameter("userGender");
 	    String userRegion = request.getParameter("userRegion");
 	    double userWeight = Double.parseDouble(request.getParameter("userWeight"));
 	    double userHeight = Double.parseDouble(request.getParameter("userHeight"));

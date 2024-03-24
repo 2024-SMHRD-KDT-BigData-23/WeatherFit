@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.model.UserVO"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -25,7 +27,9 @@
 </head>
 <body>
 	<%
-	session.setAttribute("userId", "ehdwn123");
+	UserVO uvo = (UserVO) session.getAttribute("userVO");
+	out.print(uvo.getUserId());
+	out.print(uvo.getUserNick());
 	%>
 	<header class="p-3 bg-light">
 		<div
@@ -33,7 +37,7 @@
 			<div class="logo">WeatherWidget</div>
 			<div class="title">WeatherFit</div>
 			<ul class="nav nav-underline">
-				<li class="nav-item"><a class="nav-link" href="home.html">홈</a>
+				<li class="nav-item"><a class="nav-link" href="gomain.do">홈</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="#">검색</a></li>
 				<li class="nav-item"><a class="nav-link" href="follow.html">팔로우</a>
@@ -41,8 +45,12 @@
 				<li class="nav-item"><a class="nav-link" href="#">메시지</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">알림</a></li>
 				<li>
-					<!-- 세션이 null이 아니라면 프로필로 바뀌게하면 됨! -->
-					<button type="button" class="btn btn-primary">로그인</button>
+					<!-- 세션이 null이 아니라면 프로필로 바뀌게하면 됨! --> <c:if test="${userVO==null}">
+						<button type="button" class="btn btn-primary" id="btn-login">로그인</button>
+
+					</c:if> <c:if test="${userVO!=null}">
+						<button type="button" class="btn btn-primary" id="btn-logout">로그아웃</button>
+					</c:if>
 				</li>
 			</ul>
 		</div>
@@ -77,7 +85,7 @@
 						<input type="text" name="receiveUserId" class="form-control"
 							placeholder="UserId" aria-label="Username"
 							aria-describedby="basic-addon1"> <input type="hidden"
-							name="sendUserId" value="<%=session.getAttribute("userId")%>">
+							name="sendUserId" value="<%=uvo.getUserId()%>">
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary"
@@ -92,7 +100,7 @@
 	</div>
 
 	<script>
-		let userId = "<%=session.getAttribute("userId")%>";
+		let userId = "<%=uvo.getUserId()%>";
 	</script>
 	<script src="assets/js/chat.js"></script>
 </body>
