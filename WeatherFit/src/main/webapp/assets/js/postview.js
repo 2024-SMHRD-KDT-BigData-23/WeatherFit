@@ -41,7 +41,7 @@
 
 		for (let i = 0; i < 30; i++) {
         $('#ajaxcontainer').append(`
-				<div class="col-md-4">
+				<div class="col-md-4" href="gopostdetail.do">
 					<div class="card shadow-sm">
 						<svg class="bd-placeholder-img card-img-top" width="100%"
 							height="225" xmlns="http://www.w3.org/2000/svg" role="img"
