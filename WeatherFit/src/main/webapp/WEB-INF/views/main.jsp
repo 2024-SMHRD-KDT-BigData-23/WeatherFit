@@ -149,15 +149,31 @@
 
 	</div>
 	<!-- 여기까지 모달 -->
-
+	<div class="row">
+		<div class="modal" id="contentmodal" tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						모달 헤더입니다
+						<button class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<div class="modal-body" style="text-align:center;">
+						모달보디입니다
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	
-	</main>
+	
+	
+	
 
 
 	<script src="././assets/js/login.js" defer></script>
 	<script src="././assets/js/notification.js"></script>
+	<script src="././assets/js/postview.js?ver=<%=System.currentTimeMillis()%>"></script>
 	<script src="././assets/js/weatherwidget.js"></script>
-	<script src="././assets/js/postview.js"></script>
 
 </body>
 </html>

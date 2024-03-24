@@ -32,6 +32,7 @@
 								<div class="btn-group">
 									<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
 									<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+									<a class="btn btn-default" data-target="#contentmodal" data-toggle="modal">상세보기</a>
 								</div>
 								<small class="text-body-secondary">9 mins</small>
 							</div>
@@ -39,7 +40,7 @@
 					</div>
 				</div>`;
 
-		for (let i = 0; i < 30; i++) {
+		for (let i = 0; i < 8; i++) {
         $('#ajaxcontainer').append(`
 				<div class="col-md-4">
 					<div class="card shadow-sm">
@@ -54,9 +55,8 @@
 						<div class="card-body">
 							<p class="card-text">`+ posts[i].postContent +`</p>
 							<div class="d-flex justify-content-between align-items-center">
-								<div class="btn-group">
-									<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-									<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+								<div class="btn-group" id="contentmodal">
+									<button type="button" class="btn btn-sm btn-outline-secondary" data-target="#contentmodal" data-toggle="modal">View</button>
 								</div>
 								<small class="text-body-secondary">`+ posts[i].createdAt +`</small>
 							</div>

@@ -41,8 +41,24 @@
       from tb_post
    </select>
 
+	<select id="search" resultType="map">
+		select postContent, postIdx, hashTag, userNick 
+		from tb_post inner join tb_user
+		on tb_post.userId = tb_user.userId
+		where postContent like #{keyWord} or
+		hashTag like #{keyWord} or
+		userNick like #{keyWord}
+		order by postIdx desc limit 5
+	</select>
 
 
+
+	<insert id="Comment" parameterType="com.smhrd.model.CommentVO">
+		insert into tb_comment (cmtContent, userId, cmtLikes)
+		values(#{cmtContent}, #{userId}, #{cmtLikes})
+	</insert>
+
+	
 
 
 </mapper>
