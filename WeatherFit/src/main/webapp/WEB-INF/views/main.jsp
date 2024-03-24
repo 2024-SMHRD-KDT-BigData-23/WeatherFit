@@ -48,24 +48,27 @@
 			<div class="title">WeatherFit</div>
 			<!-- 내비바 -->
 			<ul class="nav nav-underline">
-				<li class="nav-item"><a class="nav-link" href="gomain.do">홈</a></li>
-				<li class="nav-item"><a class="nav-link" href="gosearch.do">검색</a></li>
+				
+				<li class="nav-item"><a class="nav-link" id = "redirecthome">홈</a></li>
+		<c:choose>
+			<c:when test="${member==null}">
+				<li class="nav-item"><a class="nav-link" href="javascript:alert('회원가입ㄱ')">검색</a></li>
+				<li class="nav-item"><a class="nav-link" href="javascript:alert('회원가입ㄱ')">팔로우</a></li>
+				<li class="nav-item"><a class="nav-link" href="javascript:alert('회원가입ㄱ')">메시지</a></li>
+				<li class="nav-item"><a class="nav-link" href="javascript:alert('회원가입ㄱ')">알림</a></li>
+				<button type="button" class="btn btn-primary" id="btn-login">로그인</button>
+			</c:when>
+			
+			<c:when test="${member!=null}">
+				<li class="nav-item"><a class="nav-link" href="Search.do">검색</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">팔로우</a></li>
-				<li class="nav-item"><a class="nav-link" href="gochat.do">메시지</a>
-				</li>
+				<li class="nav-item"><a class="nav-link" href="Message.do">메시지</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">알림</a></li>
-				<!-- (수정) 수정버튼 임시로 추가 -->
-				<li>
-					<button type="button" class="btn btn-primary" id="btn-update" href="goupdate.do">정보수정</button>
-				</li>
-				<li>
-					<!-- 세션이 null이 아니라면 프로필로 바뀌게하면 됨! --> 
-					<c:if test="${member==null}">
-						<button type="button" class="btn btn-primary" id="btn-login">로그인</button>
-					</c:if> 
-					<c:if test="${member!=null}">
-						<button type="button" class="btn btn-primary" id="btn-logout">로그아웃</button>
-					</c:if>
+				<button type="button" class="btn btn-primary" id="btn-logout">로그아웃</button>
+			</c:when>
+
+		</c:choose>
+	</ul>
 
 		</div>
 	</header>
@@ -236,6 +239,7 @@
 
 	</div>
 	<!-- 여기까지 모달 -->
+
 	<div class="row">
 		<div class="modal" id="contentmodal" tabindex="-1">
 			<div class="modal-dialog">
@@ -251,10 +255,8 @@
 			</div>
 		</div>
 	</div>
-	
-	
-	
-	
+
+	</main>
 
 	<script src="././assets/js/postdetail.js"></script>
 	<script src="././assets/js/update.js"></script>

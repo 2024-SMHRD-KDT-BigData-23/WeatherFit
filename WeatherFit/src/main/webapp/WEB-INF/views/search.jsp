@@ -26,16 +26,15 @@
                 WeatherFit
             </div>
             <ul class="nav nav-underline">
-					<li class="nav-item"><a class="nav-link" id = "redirecthome">홈</a></li>
-					<li class="nav-item"><a class="nav-link" href="Search.do">검색</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">팔로우</a></li>
-					<li class="nav-item"><a class="nav-link" href="Message.do">메시지</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">알림</a></li>
-					<button type="button" class="btn btn-primary" id="btn-logout">로그아웃</button>
-			</ul>
+                <li class="nav-item"><a class="nav-link" id = "redirecthome">홈</a></li>
+                <li class="nav-item"><a class="nav-link" href="Search.do">검색</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">팔로우</a></li>
+                <li class="nav-item"><a class="nav-link" href="Message.do">메시지</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">알림</a></li>
+                <button type="button" class="btn btn-primary" id="btn-logout">로그아웃</button>
+        </ul>
         </div>
     </header>
-    
     <main>
         <form class="d-flex justify-content-center align-items-center" role="search" action="#" method="post">
             <input type="search" name="search" id="search" placeholder="검색어를 입력하세요.">
@@ -46,7 +45,7 @@
         </form>
         <div id=ajaxcontainer></div>
     </main>
-	
+
     <script src="assets/js/search1.js"></script>
 </body>
 </html>

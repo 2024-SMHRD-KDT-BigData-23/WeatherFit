@@ -63,6 +63,12 @@
 		where userId=#{userId}
 	</select>
 
+
+	<insert id="sendChat" parameterType="com.smhrd.model.ChatVO">
+		insert into tb_chat(roomIdx, chatter, chat, emoticon)
+		values (#{roomIdx}, #{chatter}, #{chat}, #{emoticon})
+	</insert>
+
 	<select id="search" resultType="map">
 		select postContent, postIdx, hashTag, userNick 
 		from tb_post inner join tb_user
@@ -73,34 +79,11 @@
 		order by postIdx desc limit 5
 	</select>
 
-	<insert id="sendChat" parameterType="com.smhrd.model.ChatVO">
-		insert into tb_chat(roomIdx, chatter, chat, emoticon)
-		values (#{roomIdx}, #{chatter}, #{chat}, #{emoticon})
-	</insert>
 
 
 	<insert id="Comment" parameterType="com.smhrd.model.CommentVO">
 		insert into tb_comment (cmtContent, userId, cmtLikes)
 		values(#{cmtContent}, #{userId}, #{cmtLikes})
 	</insert>
-
-	
-
-	<select id="selectChats" parameterType="com.smhrd.model.ChatVO" resultType="com.smhrd.model.ChatVO">
-		select *
-		from tb_chat
-		where roomIdx = #{roomIdx}
-	</select>
-	
-	<insert id="createRoom" parameterType="com.smhrd.model.RoomVO">
-		insert into tb_room(roomTitle, userId, roomLimit, roomStatus)
-		values (#{roomTitle}, #{userId}, #{roomLimit}, #{roomStatus})
-	</insert>
-	
-	<select id="selectRooms" parameterType="com.smhrd.model.RoomVO" resultType="com.smhrd.model.RoomVO">
-		select *
-		from tb_room
-		where userId=#{userId}
-	</select>
 
 </mapper>

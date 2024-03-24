@@ -22,12 +22,13 @@ import com.smhrd.controller.Logout;
 import com.smhrd.controller.Post;
 import com.smhrd.controller.Postselect;
 import com.smhrd.controller.Search;
-import com.smhrd.controller.TestGo;
 import com.smhrd.controller.Message;
 import com.smhrd.controller.Update;
 //import com.smhrd.controller.Logout;
 //import com.smhrd.controller.SelectAll;
 //import com.smhrd.controller.Update;
+import com.smhrd.database.DAO;
+import com.smhrd.model.UserVO;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -47,15 +48,14 @@ public class FrontController extends HttpServlet {
 		map.put("CreateRoom.do", new CreateRoom());
 		
 		// 단순 이동 기능
-		map.put("TestGo.do", new TestGo());
+		map.put("Search.do", new Search());
 		map.put("Message.do", new Message());
 		map.put("Home.do", new Home());
-		map.put("Search.do", new Search());
+		
 		
 		
 //		map.put("EmailCheck.do", new EmailCheck());
 	}
-	
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
