@@ -62,5 +62,11 @@
 		from tb_room
 		where userId=#{userId} or roomTitle=#{userId}
 	</select>
+	
+	<select id="checkRoom" parameterType="com.smhrd.model.RoomVO" resultType="com.smhrd.model.RoomVO">
+		select *
+		from tb_room
+		where (userId=#{userId} and roomTitle=#{roomTitle}) or (userId=#{roomTitle} and roomTitle=#{userId})
+	</select>
 
 </mapper>

@@ -102,5 +102,12 @@ public class DAO {
 		session.close();
 		return resultList;
 	}
+
+	public RoomVO checkRoom(RoomVO rvo) {
+		SqlSession session = factory.openSession();
+		RoomVO resultVO = session.selectOne("checkRoom", rvo);
+		session.close();
+		return resultVO;
+	}
 	
 }
