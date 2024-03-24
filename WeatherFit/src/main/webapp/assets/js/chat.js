@@ -106,7 +106,6 @@ function sendMessage(userId, roomIdx) {
 // 사용자가 메세지를 전송하면 input을 초기화 기능  
 function resetInput() {
 	var input = document.getElementById("message-input");
-	var message = input.value;
 	input.value = ""; // 입력 필드 초기화
 }
 
@@ -128,12 +127,12 @@ function webSocketInit(path, userId) {
 }
 
 // 웹소켓 연결
-function socketOpen(event) {
+function socketOpen() {
 	console.log("연결 완료");
 }
 
 // 웹소켓 닫힘
-function socketClose(event) {
+function socketClose() {
 	console.log("웹소켓이 닫혔습니다.");
 	// 웹소켓이 닫혀있으면 재연결을 시도합니다.
 	webSocketInit();
@@ -154,7 +153,7 @@ function socketMsgSend(userId, roomIdx, sendMessage) {
 function socketMessage(event, userId) {
 	let receiveData = event.data; // 수신 data
 	let receiveMessage = JSON.parse(receiveData);
-
+	
 	let messageElement = document.createElement("div");
 
 	if (receiveMessage.userId == userId) {
@@ -183,6 +182,7 @@ function socketMessage(event, userId) {
 
 // 웹소켓 에러
 function socketError(event) {
+	console.error("WebSocket 에러 발생 : ", event);
 	alert("에러가 발생하였습니다.");
 }
 
