@@ -12,15 +12,13 @@ public class Comment implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		
 		int cmtLikes = Integer.parseInt(request.getParameter("cmtLikes"));
 		String cmtContent = request.getParameter("cmtContent");
 		
-		
+		FileVO userNick = (FileVO)(session.getAttribute("member"));
 		
 		DAO dao = new DAO();
 		dao.Comment();
-		
 		
 		return null;
 	}

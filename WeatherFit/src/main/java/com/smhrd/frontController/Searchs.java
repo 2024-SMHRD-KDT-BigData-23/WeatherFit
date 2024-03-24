@@ -19,25 +19,25 @@ import com.smhrd.database.DAO;
 public class Searchs extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	
+
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("검색요청이 들어옴.");
 		response.setContentType("text/html;charset=UTF-8");
-		
+
 		String keyWord = request.getParameter("keyWord");
-		
+
 		DAO dao = new DAO();
 		System.out.println(keyWord);
 		List<Map<String, Object>> search = dao.Search(keyWord);
 		PrintWriter out = response.getWriter();
-		
-		
+
+
 		Gson gson = new Gson();
 		String json = gson.toJson(search);
-		
-			
+
+
 		out.print(json);
-		
+
 	}
 
 }
